@@ -26,10 +26,10 @@ body {
 }
 
 @layer utilities {
-  .text-manrope {
+  .font-manrope {
     font-family: var(--font-manrope);
   }
-  .text-roboto {
+  .font-roboto {
     font-family: var(--font-roboto);
   }
   .text-highlight {
