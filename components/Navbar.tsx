@@ -11,7 +11,7 @@ const Navbar = () => {
         <Link href="/">
           <Image src="/logoWhite.png" alt="logo" width={64} height={64}></Image>
         </Link>
-        <div className="flex space-x-8 font-roboto font-base font-normal">
+        <div className="flex space-x-8 font-roboto font-base font-medium">
           <Link href="/">
             <span>Services</span>
           </Link>
