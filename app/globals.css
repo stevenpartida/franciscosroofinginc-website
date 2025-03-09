@@ -1,26 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8F9FA;
+  --foreground: #121212;
+
+  --font-manrope: "Manrope", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-black: #121212;
+  --color-white: #F8F9FA;
+  --color-highlight: #1E90FF;
+  --color-highlight-secondary: #0074E4;
+  --color-grey-custom: #B0B3B8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), var(--font-roboto), sans-serif;
+}
+
+@layer utilities {
+  .text-manrope {
+    font-family: var(--font-manrope);
+  }
+  .text-roboto {
+    font-family: var(--font-roboto);
+  }
+  .text-highlight {
+    color: var(--color-highlight);
+  }
+  .text-highlight-secondary {
+    color: var(--color-highlight-secondary);
+  }
+  .text-grey-custom {
+    color: var(--color-grey-custom);
+  }
 }
