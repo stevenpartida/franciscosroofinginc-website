@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Plus, Star, CheckCircle } from "lucide-react";
+import { Plus, Star, CircleCheck, ChevronRight } from "lucide-react";
 
 const stats = [
   {
@@ -20,7 +20,7 @@ const stats = [
     id: 3,
     title: "Rated Reviews",
     value: 4.8,
-    icon: <Star className="text-highlight fill-highlight w-8 h-8" />,
+    icon: <Star className="text-highlight fill-highlight w-6 h-6" />,
   },
 ];
 
@@ -86,6 +86,75 @@ export default function Home() {
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+      <section className="w-full flex flex-row justify-center gap-x-8  px-14 py-24">
+        {/* Left Images */}
+        <div className="flex flex-row gap-x-8 font-roboto">
+          {/* Image 1 with Black Box */}
+          <div className="relative lg:flex flex-col lg:gap-x-8 lg:gap-y-4 mt-8">
+            <div className="relative lg:w-64 lg:h-72 overflow-hidden rounded-lg rounded-tl-[80]">
+              <Image
+                src="/worker1.jpg"
+                alt="worker1"
+                layout="fill"
+                objectFit="cover"
+              ></Image>
+            </div>
+            <div className="bg-black text-white flex flex-col justify-center text-center py-2 relative lg:w-64 lg:h-32 rounded-lg">
+              <h1 className="font-extrabold text-3xl">35 +</h1>
+              <p className="text-sm font-light">Years of Experience</p>
+            </div>
+          </div>
+          {/* Image 2 */}
+          <div className="relative lg:w-64 overflow-hidden lg:h-108 rounded-lg rounded-br-[80]">
+            <Image
+              src="/worker2.jpg"
+              alt="worker2"
+              layout="fill"
+              objectFit="cover"
+            ></Image>
+          </div>
+        </div>
+        {/* Right Text Section */}
+        <div className="relative flex flex-col mt-8">
+          <h1 className="uppercase text-base font-bold font-roboto">
+            Our Mission
+          </h1>
+          <h1 className="uppercase font-extrabold font-manrope text-5xl tracking-tighter text-black">
+            strong roofs, <br />
+            <span className="text-highlight">stronger foundations</span>
+          </h1>
+          <p className="font-roboto text-base font-medium text-black my-4">
+            At Francisco’s Roofing Inc., we believe every home and business
+            deserves top-tier protection. That’s why we use premium materials
+            and advanced techniques to build weather-resistant, long-lasting
+            roofs for both residential and commercial projects.
+          </p>
+          <div>
+            <ul className="list-none flex flex-col gap-y-4">
+              <li className="flex flex-row gap-x-2 items-center font-roboto text-black text-base font-bold">
+                <CircleCheck className="text-highlight w-5 h-5" />
+                Premium Materials for Lasting Protection
+              </li>
+              <li className="flex flex-row gap-x-2 items-center font-roboto text-black text-base font-bold">
+                <CircleCheck className="text-highlight w-5 h-5" />
+                Reliable Service for Home & Businesses
+              </li>
+              <li className="flex flex-row gap-x-2 items-center font-roboto text-black text-base font-bold">
+                <CircleCheck className="text-highlight w-5 h-5" />
+                High-Performance Roofing for Any Weather Condition
+              </li>
+            </ul>
+          </div>
+          <div className="flex justify-start">
+            <Button
+              variant={"gradient"}
+              className="font-roboto font-bold w-auto mt-8"
+            >
+              Read More <ChevronRight />
+            </Button>
+          </div>
         </div>
       </section>
     </main>
