@@ -90,9 +90,9 @@ export default function Home() {
       </section>
       <section className="w-full flex flex-row justify-center gap-x-8  px-14 py-24">
         {/* Left Images */}
-        <div className="flex flex-row gap-x-8 font-roboto">
+        <div className="flex flex-row gap-x-8 font-roboto relative mt-8">
           {/* Image 1 with Black Box */}
-          <div className="relative lg:flex flex-col lg:gap-x-8 lg:gap-y-4 mt-8">
+          <div className="relative lg:flex flex-col lg:gap-x-8 lg:gap-y-4">
             <div className="relative lg:w-64 lg:h-72 overflow-hidden rounded-lg rounded-tl-[80]">
               <Image
                 src="/worker1.jpg"
@@ -117,13 +117,13 @@ export default function Home() {
           </div>
         </div>
         {/* Right Text Section */}
-        <div className="relative flex flex-col mt-8">
+        <div className="relative flex flex-col mt-8 pl-12 ">
           <h1 className="uppercase text-base font-bold font-roboto">
             Our Mission
           </h1>
           <h1 className="uppercase font-extrabold font-manrope text-5xl tracking-tighter text-black">
-            strong roofs, <br />
-            <span className="text-highlight">stronger foundations</span>
+            Family-Owned, <br />
+            <span className="">Quality Roofing</span>
           </h1>
           <p className="font-roboto text-base font-medium text-black my-4">
             At Francisco’s Roofing Inc., we believe every home and business
@@ -135,15 +135,15 @@ export default function Home() {
             <ul className="list-none flex flex-col gap-y-4">
               <li className="flex flex-row gap-x-2 items-center font-roboto text-black text-base font-bold">
                 <CircleCheck className="text-highlight w-5 h-5" />
-                Premium Materials for Lasting Protection
+                Premium Materials – Strength and longevity you can trust.
               </li>
               <li className="flex flex-row gap-x-2 items-center font-roboto text-black text-base font-bold">
                 <CircleCheck className="text-highlight w-5 h-5" />
-                Reliable Service for Home & Businesses
+                Reliable Service – Trusted by homeowners and businesses.
               </li>
               <li className="flex flex-row gap-x-2 items-center font-roboto text-black text-base font-bold">
                 <CircleCheck className="text-highlight w-5 h-5" />
-                High-Performance Roofing for Any Weather Condition
+                Weather-Resistant Roofing – Built for any season, any storm.
               </li>
             </ul>
           </div>
