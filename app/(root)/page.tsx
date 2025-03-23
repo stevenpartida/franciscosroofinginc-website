@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Plus, Star, CircleCheck, ChevronRight } from "lucide-react";
+import ReviewCarousel from "@/components/ReviewCarousel";
 
 const stats = [
   {
@@ -88,9 +89,9 @@ export default function Home() {
           </dl>
         </div>
       </section>
-      <section className="w-full flex flex-row justify-center gap-x-8  px-14 py-24">
+      <section className="w-full flex flex-row justify-center gap-x-4  px-14 py-24">
         {/* Left Images */}
-        <div className="flex flex-row gap-x-8 font-roboto relative mt-8">
+        <div className="flex flex-row gap-x-8 font-roboto relative mt-8 w-full mx-auto">
           {/* Image 1 with Black Box */}
           <div className="relative lg:flex flex-col lg:gap-x-8 lg:gap-y-4">
             <div className="relative lg:w-64 lg:h-72 overflow-hidden rounded-lg rounded-tl-[80]">
@@ -117,7 +118,7 @@ export default function Home() {
           </div>
         </div>
         {/* Right Text Section */}
-        <div className="relative flex flex-col mt-8 pl-12 ">
+        <div className="relative flex flex-col mt-8 pl-12 w-full mx-auto">
           <h1 className="uppercase text-base font-bold font-roboto">
             Our Mission
           </h1>
@@ -156,6 +157,23 @@ export default function Home() {
             </Button>
           </div>
         </div>
+      </section>
+      <section className="flex flex-row justify-center px-14 overflow-hidden">
+        <div className="flex flex-col w-full mx-auto mt-18 ">
+          <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter text-balance text-black">
+            Hear it from <br /> Homeowners & Businesses <br />
+            Not just us!
+          </h1>
+          <div className="flex justify-start">
+            <Button
+              variant={"gradient"}
+              className="font-roboto font-bold w-auto mt-8"
+            >
+              More Reviews <ChevronRight />
+            </Button>
+          </div>
+        </div>
+        <ReviewCarousel />
       </section>
     </main>
   );
