@@ -1,8 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Plus, Star, CircleCheck, ChevronRight } from "lucide-react";
+import {
+  Plus,
+  Star,
+  CircleCheck,
+  ChevronRight,
+  Gift,
+  BookmarkCheck,
+  ShieldCheck,
+  Award,
+} from "lucide-react";
 import ReviewCarousel from "@/components/ReviewCarousel";
+import { title } from "process";
+import { Description } from "@headlessui/react";
+import { div } from "framer-motion/client";
 
 const stats = [
   {
@@ -25,9 +37,46 @@ const stats = [
   },
 ];
 
+const guarantees = [
+  {
+    id: 1,
+    icon: <Gift className="text-highlight w-12 h-12" />,
+    title: (
+      <>
+        High <br /> Quality
+      </>
+    ),
+    description:
+      "We use only the best materials and premium products to ensure long-lasting and durable roofing solutions.",
+  },
+  {
+    id: 2,
+    icon: <Award className="text-highlight w-12 h-12" />,
+    title: (
+      <>
+        Satisfaction <br /> Guaranteed
+      </>
+    ),
+    description:
+      "We guarantee exceptional roofing service, ensuring a smooth and worry-free experience from start to finish.",
+  },
+  {
+    id: 3,
+    icon: <ShieldCheck className="text-highlight w-12 h-12" />,
+    title: (
+      <>
+        Licensed & <br /> Insured
+      </>
+    ),
+    description:
+      "We are fully licensed and insured, giving you peace of mind that your property is in safe, professional hands.",
+  },
+];
+
 export default function Home() {
   return (
     <main className="relative w-full bg-white">
+      {/* Landing Section */}
       <section className="relative w-full h-screen">
         {/* Background Video */}
         <video
@@ -71,6 +120,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Achievements Sections */}
       <section className="w-full bg-black text-white py-12 sm:py-18">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 font-roboto">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
@@ -89,6 +139,7 @@ export default function Home() {
           </dl>
         </div>
       </section>
+      {/* Our Mission Section */}
       <section className="w-full flex flex-row justify-center gap-x-4  px-14 py-24">
         {/* Left Images */}
         <div className="flex flex-row gap-x-8 font-roboto relative mt-8 w-full mx-auto">
@@ -158,12 +209,20 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="flex flex-row justify-center px-14 overflow-hidden">
+      {/* Testimonials Section */}
+      <section className="flex flex-row justify-center px-14 overflow-hidden bg-white">
         <div className="flex flex-col w-full mx-auto mt-18 ">
-          <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter text-balance text-black">
-            Hear it from <br /> Homeowners & Businesses <br />
-            Not just us!
-          </h1>
+          <div className="flex flex-col">
+            <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter text-balance text-black">
+              Hear it from <br /> Homeowners & Businesses <br />
+              Not just us!
+            </h1>
+            <p className="font-roboto text-base font-medium text-black my-4">
+              Discover what our clients have to say about their experience with
+              our services.
+            </p>
+          </div>
+
           <div className="flex justify-start">
             <Button
               variant={"gradient"}
@@ -174,6 +233,29 @@ export default function Home() {
           </div>
         </div>
         <ReviewCarousel />
+      </section>
+      {/* Guarantees Section */}
+      <section className="w-full text-black py-12 sm:py-18">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 font-roboto">
+          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+            {guarantees.map((guarantee) => (
+              <div
+                key={guarantee.id}
+                className="mx-auto flex max-w-xs flex-col gap-y-3"
+              >
+                <dt className="text-sm font-light text-pretty">
+                  {guarantee.description}
+                </dt>
+                <dd className="order-first flex flex-row items-center justify-center space-x-2">
+                  <div>{guarantee.icon}</div>
+                  <div className="font-roboto text-black text-2xl text-center font-semibold leading-none">
+                    {guarantee.title}
+                  </div>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </section>
     </main>
   );

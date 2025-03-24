@@ -92,7 +92,7 @@ const ReviewCarousel = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % reviews.length);
-    }, 7000);
+    }, 12000);
   };
 
   const nextReview = () => {
@@ -113,7 +113,7 @@ const ReviewCarousel = () => {
   }, [currentIndex]);
 
   return (
-    <section className=" w-full mx-auto overflow-hidden flex flex-row gap-4 ">
+    <section className=" w-full mx-auto overflow-hidden flex flex-row justify-center gap-4 ">
       <div className="flex flex-col gap-6">
         <div className="mt-[-55%]">
           <ReviewCard review={reviews[prevIndex]} faded />

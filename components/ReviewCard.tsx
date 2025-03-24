@@ -20,8 +20,8 @@ type ReviewCardProps = {
 const ReviewCard = ({ review, faded = false }: ReviewCardProps) => {
   return (
     <div
-      className={`rounded-lg text-black px-4 py-6 mx-auto w-[500px] h-[360px] flex flex-col justify-between
-        ${faded ? "bg-grey-custom/5" : "bg-grey-custom/15"}
+      className={`rounded-lg bg-grey-custom/15 text-black px-4 py-6 mx-auto w-[500px] h-[360px] flex flex-col justify-between
+        ${faded ? " opacity-40 " : "scale-100"}
       `}
     >
       <div className="flex flex-col ">
