@@ -241,9 +241,9 @@ export default function Home() {
             {guarantees.map((guarantee) => (
               <div
                 key={guarantee.id}
-                className="mx-auto flex max-w-xs flex-col gap-y-3"
+                className="mx-auto flex max-w-md flex-col gap-y-3 "
               >
-                <dt className="text-sm font-light text-pretty">
+                <dt className="text-sm font-light text-balance">
                   {guarantee.description}
                 </dt>
                 <dd className="order-first flex flex-row items-center justify-center space-x-2">
@@ -255,6 +255,15 @@ export default function Home() {
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+      {/* Services Section */}
+      <section className="w-full mx-auto min-h-screen bg-black text-white">
+        <h1 className="uppercase font-extrabold font-manrope text-5xl tracking-tighter text-white">
+          Our Services
+        </h1>
+        <div>
+          <div></div>
         </div>
       </section>
     </main>

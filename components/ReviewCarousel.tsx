@@ -126,14 +126,14 @@ const ReviewCarousel = () => {
       <div className="flex flex-col gap-4 w-auto mt-30">
         <button
           onClick={prevReview}
-          className="p-6 rounded-full bg-grey-custom/30  "
+          className="p-6 rounded-full bg-grey-custom/30 hover:cursor-pointer "
           aria-label="Previous review"
         >
           <ArrowUp className="text-gray-700" />
         </button>
         <button
           onClick={nextReview}
-          className="p-6 rounded-full bg-grey-custom/30"
+          className="p-6 rounded-full bg-grey-custom/30 hover:cursor-pointer"
           aria-label="Next review"
         >
           <ArrowDown className="text-black" />
