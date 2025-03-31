@@ -12,6 +12,7 @@ import {
   Award,
 } from "lucide-react";
 import ReviewCarousel from "@/components/ReviewCarousel";
+import ServiceCard from "@/components/ServiceCard";
 import { title } from "process";
 import { Description } from "@headlessui/react";
 import { div } from "framer-motion/client";
@@ -170,7 +171,7 @@ export default function Home() {
         </div>
         {/* Right Text Section */}
         <div className="relative flex flex-col mt-8 pl-12 w-full mx-auto">
-          <h1 className="uppercase text-base font-bold font-roboto">
+          <h1 className="capitalize text-base font-bold font-roboto">
             Our Mission
           </h1>
           <h1 className="uppercase font-extrabold font-manrope text-5xl tracking-tighter text-black">
@@ -258,14 +259,40 @@ export default function Home() {
         </div>
       </section>
       {/* Services Section */}
-      <section className="w-full mx-auto min-h-screen bg-black text-white">
-        <h1 className="uppercase font-extrabold font-manrope text-5xl tracking-tighter text-white">
+      <section className="w-full mx-auto min-h-screen bg-black text-white flex flex-col justify-center items-center px-14 py-24">
+        <h1 className="capitalize font-extrabold font-manrope text-5xl tracking-tighter text-white mb-10 ">
           Our Services
         </h1>
-        <div>
-          <div></div>
+        <div className=" w-full flex flex-row justify-center gap-x-6">
+          <ServiceCard
+            title="Residential"
+            imgSrc="/roof1.jpg"
+            services={[
+              "Roof Repair",
+              "Roof Replacement",
+              "Roof Installation",
+              "Emergency Roofing",
+              "Roof Maintenance",
+            ]}
+            href="/"
+          ></ServiceCard>
+          <ServiceCard
+            title="Commercial"
+            imgSrc="/roof3.jpg"
+            services={[
+              "Roof Repair",
+              "Roof Replacement",
+              "Roof Installation",
+              "Emergency Roofing",
+              "Roof Maintenance",
+            ]}
+            href="/"
+          ></ServiceCard>
         </div>
       </section>
+      {/* Material Section */}
+
+      {/* CTA Section */}
     </main>
   );
 }

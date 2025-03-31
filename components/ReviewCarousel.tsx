@@ -92,7 +92,7 @@ const ReviewCarousel = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % reviews.length);
-    }, 12000);
+    }, 7000);
   };
 
   const nextReview = () => {
