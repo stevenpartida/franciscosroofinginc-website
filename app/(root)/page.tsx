@@ -16,6 +16,8 @@ import ServiceCard from "@/components/ServiceCard";
 import { title } from "process";
 import { Description } from "@headlessui/react";
 import { div } from "framer-motion/client";
+import LogoCloud from "@/components/LogoCloud";
+import CTA from "@/components/CTA";
 
 const stats = [
   {
@@ -260,7 +262,7 @@ export default function Home() {
       </section>
       {/* Services Section */}
       <section className="w-full mx-auto min-h-screen bg-black text-white flex flex-col justify-center items-center px-14 py-24">
-        <h1 className="capitalize font-extrabold font-manrope text-5xl tracking-tighter text-white mb-10 ">
+        <h1 className="capitalize font-extrabold font-manrope text-7xl tracking-tighter text-white mb-10 ">
           Our Services
         </h1>
         <div className=" w-full flex flex-row justify-center gap-x-6">
@@ -291,8 +293,13 @@ export default function Home() {
         </div>
       </section>
       {/* Material Section */}
-
+      <section className="w-full mx-auto items-center px-14 py-14 ">
+        <LogoCloud />
+      </section>
       {/* CTA Section */}
+      <section className="w-full p-14">
+        <CTA />
+      </section>
     </main>
   );
 }

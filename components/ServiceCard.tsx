@@ -22,7 +22,7 @@ const ServiceCard = ({ title, imgSrc, services, href }: ServiceCardProps) => {
         className="relative w-[500px] h-[500px] overflow-hidden  rounded-2xl cursor-pointer hover:shadow-lg shadow-highlight "
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        whileHover={{ y: -15 }}
+        whileHover={{ y: -20 }}
         whileTap={{ y: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
@@ -40,7 +40,7 @@ const ServiceCard = ({ title, imgSrc, services, href }: ServiceCardProps) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 10 }}
             transition={{ duration: 0.3 }}
-            className="px-4 py-6 space-y-1 text-base font-semibold"
+            className="px-4 py-4 space-y-1 text-base font-semibold"
           >
             {services.map((service, i) => (
               <div key={i}>{service}</div>
