@@ -11,7 +11,7 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 const navigation = [
   { name: "Services", href: "/" },
   { name: "Projects", href: "/" },
-  { name: "About", href: "/" },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/" },
 ];
 

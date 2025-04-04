@@ -297,7 +297,7 @@ export default function Home() {
         <LogoCloud />
       </section>
       {/* CTA Section */}
-      <section className="w-full p-14">
+      <section className="w-full px-14 pb-14">
         <CTA />
       </section>
     </main>

@@ -39,14 +39,23 @@ const Footer = () => {
         </div>
 
         {/* Socials */}
-        <div className="flex flex-row items-center gap-x-4">
-          <Link href="/">
+        <div className="flex flex-row items-center gap-x-2">
+          <Link
+            href="/"
+            className="shadow-lg p-2 rounded-sm border-[0.5px] border-black"
+          >
             <FaFacebookF className="text-lg text-black" />
           </Link>
-          <Link href="/">
+          <Link
+            href="/"
+            className="shadow-lg p-2 rounded-sm border-[0.5px] border-black"
+          >
             <FaInstagram className="text-lg text-black" />
           </Link>
-          <Link href="/">
+          <Link
+            href="/"
+            className="shadow-lg p-2 rounded-sm border-[0.5px] border-black"
+          >
             <FaGoogle className="text-lg text-black" />
           </Link>
         </div>
