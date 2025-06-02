@@ -5,7 +5,7 @@ export default function Layout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar theme="light" />
+      <Navbar theme="dark" />
       <main className="flex-grow">{children}</main>
     </div>
   );

@@ -9,36 +9,33 @@ import { ChevronRight, Menu, X } from "lucide-react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 
 const navigation = [
-  { name: "Services", href: "/" },
+  { name: "Services", href: "/services" },
   { name: "Projects", href: "/" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/" },
 ];
 
-const Navbar = () => {
-  const [isDark, setIsDark] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+type NavBarProps = {
+  theme?: "light" | "dark";
+};
 
-  const toggleDarkMode = () => setIsDark(!isDark);
-  const enableDarkMode = () => setIsDark(true);
+function Navbar({ theme = "light" }: NavBarProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isLight = theme === "light";
 
   return (
     <header
       className={`absolute inset-x-0 top-0 z-50 font-roboto w-full ${
-        isDark ? " lg:text-black" : "text-white"
+        isLight ? "text-white" : "text-black"
       }`}
     >
       <nav className="flex items-center justify-between p-6 lg:px-14">
         {/* Logo */}
         <div className="flex lg:flex-1">
-          <Link
-            href="/"
-            className="-m-1.5 p-1.5"
-            onClick={() => setIsDark(false)}
-          >
+          <Link href="/" className="-m-1.5 p-1.5">
             <Image
-              src={isDark ? "/logoBlack.png" : "/logoWhite.png"}
-              alt="logo"
+              src={isLight ? "/logoWhite.png" : "/logoBlack.png"}
+              alt="Francisco's Roofing Inc Logo"
               width={64}
               height={64}
             />
@@ -63,7 +60,6 @@ const Navbar = () => {
               key={item.name}
               href={item.href}
               className="text-base font-medium"
-              onClick={enableDarkMode}
             >
               {item.name}
             </Link>
@@ -73,11 +69,7 @@ const Navbar = () => {
         {/* Free Estimate Button */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link href="/">
-            <Button
-              variant="gradient"
-              className="font-semibold font-roboto"
-              onClick={enableDarkMode}
-            >
+            <Button variant="gradient" className="font-semibold font-roboto">
               Free Estimate <ChevronRight />
             </Button>
           </Link>
@@ -131,6 +123,6 @@ const Navbar = () => {
       </Dialog>
     </header>
   );
-};
+}
 
 export default Navbar;

@@ -276,7 +276,7 @@ export default function Home() {
               "Emergency Roofing",
               "Roof Maintenance",
             ]}
-            href="/"
+            href="/services/residential"
           ></ServiceCard>
           <ServiceCard
             title="Commercial"
@@ -288,7 +288,7 @@ export default function Home() {
               "Emergency Roofing",
               "Roof Maintenance",
             ]}
-            href="/"
+            href="/services/commercial"
           ></ServiceCard>
         </div>
       </section>
