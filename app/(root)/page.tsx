@@ -246,7 +246,7 @@ export default function Home() {
                 key={guarantee.id}
                 className="mx-auto flex max-w-md flex-col gap-y-3 "
               >
-                <dt className="text-sm font-light text-balance">
+                <dt className="text-sm font-normal text-balance">
                   {guarantee.description}
                 </dt>
                 <dd className="order-first flex flex-row items-center justify-center space-x-2">
@@ -261,7 +261,10 @@ export default function Home() {
         </div>
       </section>
       {/* Services Section */}
-      <section className="w-full mx-auto min-h-screen bg-black text-white flex flex-col justify-center items-center px-14 py-24">
+      <section
+        id="services"
+        className="w-full mx-auto min-h-screen bg-black text-white flex flex-col justify-center items-center px-14 py-24"
+      >
         <h1 className="capitalize font-extrabold font-manrope text-7xl tracking-tighter text-white mb-10 ">
           Our Services
         </h1>

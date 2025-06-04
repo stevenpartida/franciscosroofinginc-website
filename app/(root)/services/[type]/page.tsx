@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { servicesData } from "@/app/data/services";
+import { ServiceGridCard } from "@/components/ServiceGridCard";
 
 type Props = {
   params: { type: string };
@@ -8,23 +9,18 @@ type Props = {
 type ServiceType = keyof typeof servicesData;
 
 export default async function ServicePage({ params }: Props) {
-  const { type } = params;
+  const type = params.type;
 
-  // Type assertion to ensure `type` is a valid key of servicesData
-  if (!Object.keys(servicesData).includes(type)) {
+  if (!(type in servicesData)) {
     return notFound();
   }
 
   const data = servicesData[type as ServiceType];
 
-  console.log("type:", type);
-  console.log("data:", data);
-  console.log("data.title:", data.title);
-
   return (
     <main className="relative w-full bg-white">
-      <section className="flex flex-col w-full min-h-screen px-4 md:px-6 lg:px-14">
-        <div className="w-full max-w-screen-xl mx-auto text-center items-center justify-center mt-32 bg-gray-100">
+      <section className="flex flex-col w-full px-4 md:px-6 lg:px-14">
+        <div className="w-full max-w-screen-xl mx-auto text-center items-center justify-center mt-32">
           <h1 className="font-manrope text-black capitalize font-extrabold md:tracking-tighter leading-8 md:leading-13 text-4xl md:text-5xl">
             Our <span className="text-blue-600 capitalize">{type}</span>{" "}
             Services
@@ -33,7 +29,46 @@ export default async function ServicePage({ params }: Props) {
             {data.subtitle}
           </p>
         </div>
-        <div className=""> </div>
+      </section>
+      <section>
+        <div className="grid grid-cols-3 grid-rows-3 gap-6 w-full max-w-screen-xl mx-auto text-center items-center justify-center mt-32">
+          <ServiceGridCard
+            title="Roof Installation & Replacement"
+            description="This is a test description for the residential service. It highlights the quality and care we provide to homeowners."
+            image="/noPhoto.png"
+            link="#"
+          />
+          <ServiceGridCard
+            title="Roof Installation & Replacement"
+            description="This is a test description for the residential service. It highlights the quality and care we provide to homeowners."
+            image="/noPhoto.png"
+            link="#"
+          />
+          <ServiceGridCard
+            title="Roof Installation & Replacement"
+            description="This is a test description for the residential service. It highlights the quality and care we provide to homeowners."
+            image="/noPhoto.png"
+            link="#"
+          />
+          <ServiceGridCard
+            title="Roof Installation & Replacement"
+            description="This is a test description for the residential service. It highlights the quality and care we provide to homeowners."
+            image="/noPhoto.png"
+            link="#"
+          />
+          <ServiceGridCard
+            title="Roof Installation & Replacement"
+            description="This is a test description for the residential service. It highlights the quality and care we provide to homeowners."
+            image="/noPhoto.png"
+            link="#"
+          />
+          <ServiceGridCard
+            title="Roof Installation & Replacement"
+            description="This is a test description for the residential service. It highlights the quality and care we provide to homeowners."
+            image="/noPhoto.png"
+            link="#"
+          />
+        </div>
       </section>
     </main>
   );

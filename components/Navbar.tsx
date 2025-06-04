@@ -9,7 +9,7 @@ import { ChevronRight, Menu, X } from "lucide-react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 
 const navigation = [
-  { name: "Services", href: "/services" },
+  { name: "Services", href: "/#services" },
   { name: "Projects", href: "/" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/" },
