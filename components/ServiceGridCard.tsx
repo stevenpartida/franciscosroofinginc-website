@@ -22,25 +22,25 @@ export const ServiceGridCard = ({
   link,
 }: ServiceGridCardProps) => {
   return (
-    <Card className="w-full h-[400px] flex flex-col overflow-hidden shadow-lg">
+    <Card className="w-full h-[600px] flex flex-col overflow-hidden shadow-lg">
       {/* Image section */}
-      <div className="relative h-[40%] w-full">
+      <div className="relative h-[45%] w-full">
         <Image src={image} alt={title} fill className="object-cover" />
       </div>
 
       {/* Content section */}
       <CardContent className="flex-1 flex flex-col items-center justify-center text-center px-6 py-4">
-        <CardTitle className="text-lg text-blue-800">{title}</CardTitle>
+        <CardTitle className="text-lg text-black">{title}</CardTitle>
         <p className="text-sm text-muted-foreground mt-2">{description}</p>
       </CardContent>
 
       {/* Footer with link */}
-      <CardFooter className="justify-center">
+      <CardFooter className="justify-center pb-8">
         <Link
           href={link}
-          className="text-sm text-blue-600 font-medium hover:underline"
+          className="text-normal text-highlight font-medium hover:underline"
         >
-          View Service →
+          View Service
         </Link>
       </CardFooter>
     </Card>
