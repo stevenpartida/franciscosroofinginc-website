@@ -12,7 +12,7 @@ const navigation = [
   { name: "Services", href: "/#services" },
   { name: "Projects", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Contact", href: "/" },
+  { name: "Contact", href: "/contact" },
 ];
 
 type NavBarProps = {
