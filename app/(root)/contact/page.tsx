@@ -6,7 +6,7 @@ export default function page() {
     <main className="px-4 lg:px-14">
       <section className="grid grid-cols-2 grid-rows-1 gap-4">
         <div className="bg-red-100">Company Conatact Info</div>
-        <div className="bg-blue-100">
+        <div className="">
           <ContactForm />
         </div>
       </section>
