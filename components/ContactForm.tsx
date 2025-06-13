@@ -4,9 +4,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Input } from "@headlessui/react";
-import { Textarea } from "@headlessui/react";
-import { Button } from "./ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormField,
@@ -18,8 +18,7 @@ import {
 import { useState } from "react";
 
 const formSchema = z.object({
-  first_name: z.string().min(1, "First name is required"),
-  last_name: z.string().min(1, "Last name is required"),
+  name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number is required"),
   address: z.string().min(5, "Address is required"),
@@ -36,8 +35,7 @@ function ContactForm() {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      first_name: "",
-      last_name: "",
+      name: "",
       email: "",
       phone: "",
       address: "",
@@ -65,32 +63,21 @@ function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="max-w-xl mx-auto grid grid-cols-2 grid-rows-5 gap-4 "
+        className="max-w-xl mx-auto grid grid-cols-1 grid-rows-6 gap-2 rounded-lg shadow-lg bg-blue-100"
       >
         <FormField
           control={form.control}
-          name="first_name"
+          name="name"
           render={({ field }) => (
-            <FormItem className="space-y-1">
-              <FormLabel className="text-sm -mb-3">First Name</FormLabel>
-              <FormControl className="border rounded-md">
-                <Input {...field} className="h-9 px-3" />
+            <FormItem className="flex flex-col gap-1 text-center">
+              <FormControl>
+                <Input
+                  {...field}
+                  className="h-9 px-3 py-1.5"
+                  placeholder="Your Name"
+                />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="last_name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-sm -mb-3">Last Name</FormLabel>
-              <FormControl className="border rounded-md">
-                <Input type="email" {...field} className="h-9 px-3 py-1.5" />
-              </FormControl>
-              <FormMessage />
+              <FormMessage className="mt-1 text-sm text-red-600" />
             </FormItem>
           )}
         />
@@ -99,26 +86,15 @@ function ContactForm() {
           control={form.control}
           name="phone"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-sm -mb-3">Phone Number</FormLabel>
+            <FormItem className="flex flex-col gap-1 text-center">
               <FormControl>
-                <Input type="tel" {...field} className="h-9 px-3 py-1.5" />
+                <Input
+                  {...field}
+                  placeholder="Phone Number"
+                  className="h-9 px-3 py-1.5"
+                />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-sm -mb-3">Email</FormLabel>
-              <FormControl>
-                <Input type="tel" {...field} className="h-9 px-3 py-1.5" />
-              </FormControl>
-              <FormMessage />
+              <FormMessage className="mt-1 text-sm text-red-600" />
             </FormItem>
           )}
         />
@@ -127,12 +103,34 @@ function ContactForm() {
           control={form.control}
           name="address"
           render={({ field }) => (
-            <FormItem className="col-span-2">
-              <FormLabel className="text-sm -mb-3">Address</FormLabel>
+            <FormItem className="flex flex-col gap-1 text-center">
               <FormControl>
-                <Input {...field} className="h-9 px-3 py-1.5" />
+                <Input
+                  type="tel"
+                  {...field}
+                  className="h-9 px-3 py-1.5"
+                  placeholder="Address"
+                />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="mt-1 text-sm text-red-600" />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem className="flex flex-col gap-1 text-center">
+              <FormControl>
+                <Input
+                  type="tel"
+                  {...field}
+                  className="h-9 px-3 py-1.5"
+                  placeholder="Email"
+                />
+              </FormControl>
+              <FormMessage className="mt-1 text-sm text-red-600" />
             </FormItem>
           )}
         />
@@ -141,21 +139,16 @@ function ContactForm() {
           control={form.control}
           name="message"
           render={({ field }) => (
-            <FormItem className="col-span-2 row-start-4">
-              <FormLabel className="text-sm -mb-3">Message</FormLabel>
+            <FormItem className="flex flex-col gap-1 text-center">
               <FormControl>
-                <Textarea {...field} rows={5} />
+                <Textarea {...field} rows={5} placeholder="Message" />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="mt-1 text-sm text-red-600" />
             </FormItem>
           )}
         />
 
-        <Button
-          type="submit"
-          className="col-span-2 row-start-5"
-          disabled={status === "sending"}
-        >
+        <Button type="submit" className="" disabled={status === "sending"}>
           {status === "sending" ? "Sending..." : "Send Message"}
         </Button>
 
