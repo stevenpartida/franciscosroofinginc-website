@@ -54,12 +54,12 @@ function Navbar({ theme = "light" }: NavBarProps) {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-14">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`relative text-base font-medium after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full ${
+              className={`relative text-base font-medium after:absolute after:-bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full ${
                 isLight
                   ? "after:bg-white text-white hover:text-white"
                   : "after:bg-black text-black hover:text-black"
