@@ -59,7 +59,11 @@ function Navbar({ theme = "light" }: NavBarProps) {
             <Link
               key={item.name}
               href={item.href}
-              className="text-base font-medium"
+              className={`relative text-base font-medium after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full ${
+                isLight
+                  ? "after:bg-white text-white hover:text-white"
+                  : "after:bg-black text-black hover:text-black"
+              }`}
             >
               {item.name}
             </Link>
