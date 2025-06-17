@@ -7,6 +7,8 @@ import * as z from "zod";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+
 import {
   Form,
   FormField,
@@ -63,21 +65,27 @@ function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="max-w-xl mx-auto grid grid-cols-1 grid-rows-6 gap-2 rounded-lg shadow-lg bg-blue-100"
+        className="max-w-lg mx-auto grid grid-cols-2  gap-4 "
       >
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-1 text-center">
-              <FormControl>
+              <Label
+                htmlFor="name"
+                className="w-full font-roboto text-sm my-2 "
+              >
+                Full Name
+              </Label>
+              <FormControl className="bg-white">
                 <Input
                   {...field}
-                  className="h-9 px-3 py-1.5"
-                  placeholder="Your Name"
+                  className="h-9 px-3 py-5"
+                  placeholder="Full Name"
                 />
               </FormControl>
-              <FormMessage className="mt-1 text-sm text-red-600" />
+              <FormMessage className="my-1 text-sm text-red-600" />
             </FormItem>
           )}
         />
@@ -87,14 +95,20 @@ function ContactForm() {
           name="phone"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-1 text-center">
+              <Label
+                htmlFor="phone"
+                className="w-full font-roboto text-sm my-2"
+              >
+                Phone Number
+              </Label>
               <FormControl>
                 <Input
                   {...field}
                   placeholder="Phone Number"
-                  className="h-9 px-3 py-1.5"
+                  className="h-9 px-3 py-5"
                 />
               </FormControl>
-              <FormMessage className="mt-1 text-sm text-red-600" />
+              <FormMessage className="my-1 text-sm text-red-600" />
             </FormItem>
           )}
         />
@@ -103,12 +117,18 @@ function ContactForm() {
           control={form.control}
           name="address"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 text-center">
+            <FormItem className="flex flex-col gap-1 col-span-2 text-center">
+              <Label
+                htmlFor="address"
+                className="w-full font-roboto text-sm mb-2"
+              >
+                Address
+              </Label>
               <FormControl>
                 <Input
                   type="tel"
                   {...field}
-                  className="h-9 px-3 py-1.5"
+                  className="h-9 px-3 py-5"
                   placeholder="Address"
                 />
               </FormControl>
@@ -121,12 +141,18 @@ function ContactForm() {
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 text-center">
+            <FormItem className="flex flex-col gap-1 col-span-2 text-center">
+              <Label
+                htmlFor="email"
+                className="w-full font-roboto text-sm mb-2"
+              >
+                Email
+              </Label>
               <FormControl>
                 <Input
                   type="tel"
                   {...field}
-                  className="h-9 px-3 py-1.5"
+                  className="h-9 px-3 py-5"
                   placeholder="Email"
                 />
               </FormControl>
@@ -139,16 +165,31 @@ function ContactForm() {
           control={form.control}
           name="message"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-1 text-center">
+            <FormItem className="flex flex-col gap-1 col-span-2  text-center">
+              <Label
+                htmlFor="message"
+                className="w-full font-roboto text-sm mb-2"
+              >
+                Message
+              </Label>
               <FormControl>
-                <Textarea {...field} rows={5} placeholder="Message" />
+                <Textarea
+                  {...field}
+                  rows={500}
+                  className="min-h-[150px]"
+                  placeholder="How can we help you?"
+                />
               </FormControl>
               <FormMessage className="mt-1 text-sm text-red-600" />
             </FormItem>
           )}
         />
 
-        <Button type="submit" className="" disabled={status === "sending"}>
+        <Button
+          type="submit"
+          className="col-span-2 row-start-5"
+          disabled={status === "sending"}
+        >
           {status === "sending" ? "Sending..." : "Send Message"}
         </Button>
 
