@@ -8,9 +8,13 @@ function ContactInfo() {
     <main>
       <section>
         <div>
-          <h3>Get in touch</h3>
-          <h1>Contact Us</h1>
-          <p>
+          <h3 className="text-black font-manrope uppercase mb-2 text-base sm:text-lg tracking-widest font-light">
+            Get in touch
+          </h3>
+          <h1 className="text-4xl font-roboto font-bold mb-4 uppercase text-black">
+            Contact Us
+          </h1>
+          <p className="text-base mb-8 text-black">
             Have roofing questions or need assistance? Contact us today! We're
             here to help at every step and offer free, no-obligation estimates
             to ensure your project starts with confidence.
@@ -18,27 +22,36 @@ function ContactInfo() {
         </div>
       </section>
       <section>
-        <div>
-          <a href="tel:#">
-            <LuPhone />
+        <div className="font-manrope mb-8">
+          <a
+            href="tel:#"
+            className="text-black mb-4 flex items-center space-x-2"
+          >
+            <LuPhone size={20} />
             <span>+1 (323) 253-5146</span>
           </a>
-          <a href="mailto:#">
-            <LuMail />
+          <a
+            href="mailto:#"
+            className="text-black mb-4 flex items-center space-x-2"
+          >
+            <LuMail size={20} />
             <span>info@franciscosroofinginc.co</span>
           </a>
-          <a href="maito:#">
-            <VscTools />
+          <a
+            href="maito:#"
+            className="text-black mb-4 flex items-center space-x-2"
+          >
+            <VscTools size={20} />
             <span>support@franciscosroofinginc.co</span>
           </a>
         </div>
         <div>
-          <p>License No. #1086198</p>
+          <p className="font-manrope">License No. #1086198</p>
         </div>
       </section>
-      <section>
-        <h1>
-          <LuClock />
+      <section className="mt-8">
+        <h1 className="flex items-center space-x-2 font-bold text-2xl text-black">
+          <LuClock size={25} />
           <span>Open Hours</span>
         </h1>
         <div className="mt-4 space-y-2 max-w-xs">
