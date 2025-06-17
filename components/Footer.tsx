@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IoMail } from "react-icons/io5";
-import { FaFacebookF, FaInstagram, FaGoogle } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaGoogle } from "react-icons/fa";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/" },
+  { name: "Services", href: "/#services" },
   { name: "Projects", href: "/" },
   { name: "About", href: "/" },
   { name: "Contact", href: "/" },
@@ -31,7 +31,7 @@ const Footer = () => {
             <Link
               key={item.name}
               href={item.href}
-              className="text-base font-medium"
+              className="text-base font-medium relative  after:absolute after:-bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full after:bg-black text-black hover:text-black"
             >
               {item.name}
             </Link>
@@ -39,24 +39,15 @@ const Footer = () => {
         </div>
 
         {/* Socials */}
-        <div className="flex flex-row items-center gap-x-2">
-          <Link
-            href="/"
-            className="shadow-lg p-2 rounded-sm border-[0.5px] border-black"
-          >
-            <FaFacebookF className="text-lg text-black" />
+        <div className="flex flex-row items-center gap-4">
+          <Link href="/" className="">
+            <FaFacebook size={25} className="text-lg text-black" />
           </Link>
-          <Link
-            href="/"
-            className="shadow-lg p-2 rounded-sm border-[0.5px] border-black"
-          >
-            <FaInstagram className="text-lg text-black" />
+          <Link href="/" className="">
+            <FaInstagram size={25} className="text-lg text-black" />
           </Link>
-          <Link
-            href="/"
-            className="shadow-lg p-2 rounded-sm border-[0.5px] border-black"
-          >
-            <FaGoogle className="text-lg text-black" />
+          <Link href="/" className="">
+            <FaGoogle size={25} className="text-lg text-black" />
           </Link>
         </div>
       </div>
