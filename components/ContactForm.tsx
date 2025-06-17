@@ -65,7 +65,7 @@ function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="max-w-lg mx-auto grid grid-cols-2  gap-4 "
+        className="max-w-md mx-auto grid grid-cols-2  gap-4 "
       >
         <FormField
           control={form.control}
@@ -82,7 +82,7 @@ function ContactForm() {
                 <Input
                   {...field}
                   className="h-9 px-3 py-5"
-                  placeholder="Full Name"
+                  placeholder="ex. John Doe"
                 />
               </FormControl>
               <FormMessage className="my-1 text-sm text-red-600" />
@@ -104,7 +104,7 @@ function ContactForm() {
               <FormControl>
                 <Input
                   {...field}
-                  placeholder="Phone Number"
+                  placeholder="(555) 000-0000"
                   className="h-9 px-3 py-5"
                 />
               </FormControl>
@@ -129,7 +129,7 @@ function ContactForm() {
                   type="tel"
                   {...field}
                   className="h-9 px-3 py-5"
-                  placeholder="Address"
+                  placeholder="123 Main St, City, State, Zip"
                 />
               </FormControl>
               <FormMessage className="mt-1 text-sm text-red-600" />
@@ -153,7 +153,7 @@ function ContactForm() {
                   type="tel"
                   {...field}
                   className="h-9 px-3 py-5"
-                  placeholder="Email"
+                  placeholder="you@email.com"
                 />
               </FormControl>
               <FormMessage className="mt-1 text-sm text-red-600" />
@@ -187,7 +187,7 @@ function ContactForm() {
 
         <Button
           type="submit"
-          className="col-span-2 row-start-5"
+          className="col-span-2 row-start-5 py-5 hover:cursor-pointer bg-black"
           disabled={status === "sending"}
         >
           {status === "sending" ? "Sending..." : "Send Message"}
