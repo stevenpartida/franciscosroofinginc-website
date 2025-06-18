@@ -1,4 +1,3 @@
-// app/api/contact/route.ts
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -11,16 +10,18 @@ export async function POST(req: Request) {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: "Gmail",
+      host: "smtp.hostinger.com", // ✅ Hostinger SMTP
+      port: 465, // ✅ SSL Port (or use 587 + secure: false)
+      secure: true, // true for port 465, false for 587
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.EMAIL_USER, // support@franciscosroofinginc.co
+        pass: process.env.EMAIL_PASS, // Your Hostinger email password
       },
     });
 
     await transporter.sendMail({
-      from: `"${name}" <${email}>`,
-      to: process.env.COMPANY_EMAIL,
+      from: `"Francisco Roofing" <${process.env.EMAIL_USER}>`, // authenticated sender
+      to: process.env.COMPANY_EMAIL, // where the message is delivered
       subject: "New Roofing Contact Request",
       html: `
         <h3>Contact Form Submission</h3>
@@ -28,7 +29,7 @@ export async function POST(req: Request) {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Address:</strong> ${address}</p>
-        <p><strong>Message:</strong> ${message}</p>
+        <p><strong>Message:</strong><br/>${message}</p>
       `,
     });
 

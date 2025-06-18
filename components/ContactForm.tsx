@@ -194,10 +194,14 @@ function ContactForm() {
         </Button>
 
         {status === "sent" && (
-          <p className="text-green-600">Message sent successfully!</p>
+          <p className="text-green-600 text-center">
+            Message sent successfully!
+          </p>
         )}
         {status === "error" && (
-          <p className="text-red-600">Something went wrong. Try again.</p>
+          <p className="text-red-600 text-center">
+            Something went wrong. Try again.
+          </p>
         )}
       </form>
     </Form>

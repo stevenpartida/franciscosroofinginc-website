@@ -99,12 +99,15 @@ export default function Home() {
         {/* Content */}
         <div className=" relative h-full w-full z-10 flex flex-col justify-center text-center md:text-start md:justify-end">
           <div className=" w-full relative md:flex md:flex-row md:justify-between md:items-end md:px-14 md:py-14">
-            <h1 className="font-manrope text-white uppercase font-extrabold md:tracking-tighter leading-8 md:leading-13 text-4xl md:text-6xl">
-              TRUSTED ROOFING <br />
-              SOLUTIONS FOR <br />
-              HOMES & <br />
-              BUSINESSES
-            </h1>
+            <div>
+              <h1 className="font-manrope text-white uppercase font-extrabold md:tracking-tighter leading-8 md:leading-13 text-4xl md:text-6xl">
+                FRANCISCO'S <br />
+                ROOFING INC <br />
+              </h1>
+              <p className="font-roboto text-white capitalize font-semibold text-base mt-2">
+                High Quality Roofing & Repair Service
+              </p>
+            </div>
             <div className="font-roboto text-white flex flex-col space-y-8 m-8 lg:m-0">
               <p className="text-sm sm:text-base font-bold leading-5">
                 We use top-quality materials and expert <br />
