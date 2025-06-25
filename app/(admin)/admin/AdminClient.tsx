@@ -6,11 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+import ProjectForm from "@/components/ProjectForm";
+
 export default function AdminClient() {
   return (
     <main className="flex flex-row min-h-screen w-full">
-      <section className="basis-2/5 flex flex-col bg-green-200">
-        <div className="bg-pink-50 flex flex-row items-center justify-between p-4">
+      <section className="basis-2/5 flex flex-col ">
+        <div className=" flex flex-row items-center justify-between p-4">
           <Link href="/">
             <Image
               src="/logoBlack.png"
@@ -27,6 +29,9 @@ export default function AdminClient() {
           >
             Sign Out
           </Button>
+        </div>
+        <div className="pt-24">
+          <ProjectForm />
         </div>
       </section>
       <section className="basis-3/5 flex items-center justify-center bg-blue-300">
