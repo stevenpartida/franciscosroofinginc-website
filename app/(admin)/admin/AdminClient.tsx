@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 import ProjectForm from "@/components/ProjectForm";
+import AdminProjectGrid from "@/components/AdminProjectGrid";
 
 export default function AdminClient() {
   return (
@@ -35,7 +36,9 @@ export default function AdminClient() {
         </div>
       </section>
       <section className="basis-3/5 flex items-center justify-center bg-blue-300">
-        <div>Grid</div>
+        <div>
+          <AdminProjectGrid />
+        </div>
       </section>
     </main>
   );

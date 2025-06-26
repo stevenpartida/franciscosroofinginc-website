@@ -13,60 +13,49 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: "Missing fields" }, { status: 400 });
   }
 
-  try {
-    // Prepare filename and path
-    const fileExt = file.name.split(".").pop();
-    const fileName = `${Date.now()}.${fileExt}`;
-    const filePath = `projects/${fileName}`;
+  const fileExt = file.name.split(".").pop();
+  const fileName = `${Date.now()}.${fileExt}`;
+  const filePath = `projects/${fileName}`; // ✅ folder inside your bucket
 
-    // Upload image to Supabase Storage
-    const { error: uploadError } = await supabase.storage
-      .from("franciscos-roofing-project")
-      .upload(filePath, file, {
-        cacheControl: "3600",
-        upsert: false,
-      });
-
-    if (uploadError) {
-      console.error("Upload error:", uploadError.message);
-      return NextResponse.json(
-        { message: "Upload failed", detail: uploadError.message },
-        { status: 500 }
-      );
-    }
-
-    // Get public URL
-    const {
-      data: { publicUrl },
-    } = supabase.storage
-      .from("franciscos-roofing-project")
-      .getPublicUrl(filePath);
-
-    // Insert project into database
-    const { error: dbError } = await supabase.from("Projects").insert({
-      title,
-      category,
-      year: parseInt(year),
-      image_url: publicUrl,
+  // ✅ Upload file to Supabase Storage
+  const { error: uploadError } = await supabase.storage
+    .from("franciscos-roofing-project") // your bucket name
+    .upload(filePath, file, {
+      cacheControl: "3600",
+      upsert: false,
     });
 
-    if (dbError) {
-      console.error("DB insert error:", dbError.message);
-      return NextResponse.json(
-        { message: "DB insert failed", detail: dbError.message },
-        { status: 500 }
-      );
-    }
+  if (uploadError) {
+    console.error("Upload error:", uploadError.message);
+    return NextResponse.json({ message: "Upload failed" }, { status: 500 });
+  }
 
-    return NextResponse.json({ message: "Success", image_url: publicUrl });
-  } catch (err) {
-    console.error("Unexpected error:", err);
+  // ✅ Generate public URL correctly
+  const { publicUrl } = supabase.storage
+    .from("franciscos-roofing-project")
+    .getPublicUrl(filePath).data;
+
+  console.log("🖼️ Public image URL:", publicUrl);
+
+  if (!publicUrl) {
     return NextResponse.json(
-      {
-        message: "Server error",
-        detail: err instanceof Error ? err.message : err,
-      },
+      { message: "Could not generate image URL" },
       { status: 500 }
     );
   }
+
+  // ✅ Insert project record into your database
+  const { error: dbError } = await supabase.from("Projects").insert({
+    title,
+    category,
+    year: parseInt(year),
+    image_url: publicUrl,
+  });
+
+  if (dbError) {
+    console.error("DB insert error:", dbError.message);
+    return NextResponse.json({ message: "DB insert failed" }, { status: 500 });
+  }
+
+  return NextResponse.json({ message: "Success", imageUrl: publicUrl });
 }
