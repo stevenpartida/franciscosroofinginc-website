@@ -8,20 +8,29 @@ interface Project {
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
-  console.log("Image URL:", project.image_url);
   return (
-    <div className="border rounded p-4 shadow-sm w-[300px]">
-      <Image
-        src={project.image_url}
-        alt={project.title}
-        width={300}
-        height={200}
-        className="object-cover rounded"
-      />
-      <h3 className="font-semibold mt-2">{project.title}</h3>
-      <p className="text-sm text-gray-600">
-        {project.category} · {project.year}
-      </p>
+    <div className="w-full max-w-[400px]">
+      {/* Image (square, cropped) */}
+      <div className="relative aspect-square overflow-hidden ">
+        <Image
+          src={project.image_url}
+          alt={project.title}
+          fill
+          className="object-cover"
+          sizes="400px"
+        />
+      </div>
+
+      {/* Text */}
+      <div className="mt-3">
+        <h3 className="text-lg font-manrope font-medium leading-tight capitalize text-black">
+          {project.title}
+        </h3>
+        <p className="text-lg font-manrope text-neutral-500 uppercase tracking-wide">
+          {project.category}
+        </p>
+        <p className="text-lg text-black font-manrope ">{project.year}</p>
+      </div>
     </div>
   );
 }

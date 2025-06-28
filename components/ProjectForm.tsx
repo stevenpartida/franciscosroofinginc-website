@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { CloudUpload } from "lucide-react"; // Optional: install lucide-react
+import { CloudUpload } from "lucide-react";
 
 export default function ProjectForm() {
   const [form, setForm] = useState({
@@ -10,6 +10,7 @@ export default function ProjectForm() {
     year: "",
     image: null as File | null,
   });
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [status, setStatus] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -18,6 +19,7 @@ export default function ProjectForm() {
     const file = e.dataTransfer.files?.[0];
     if (file) {
       setForm((prev) => ({ ...prev, image: file }));
+      setPreviewUrl(URL.createObjectURL(file));
     }
   }
 
@@ -25,6 +27,7 @@ export default function ProjectForm() {
     const file = e.target.files?.[0];
     if (file) {
       setForm((prev) => ({ ...prev, image: file }));
+      setPreviewUrl(URL.createObjectURL(file));
     }
   }
 
@@ -49,6 +52,7 @@ export default function ProjectForm() {
     if (res.ok) {
       setStatus("Project uploaded successfully!");
       setForm({ title: "", category: "residential", year: "", image: null });
+      setPreviewUrl(null);
     } else {
       const error = await res.json();
       setStatus(`Error: ${error.message || "Upload failed"}`);
@@ -69,8 +73,14 @@ export default function ProjectForm() {
           Drag & Drop your files or{" "}
           <span className="text-blue-600 underline">Browse</span>
         </p>
-        {form.image && (
-          <p className="mt-2 text-sm text-gray-600">{form.image.name}</p>
+
+        {/* Preview image if available */}
+        {previewUrl && (
+          <img
+            src={previewUrl}
+            alt="Preview"
+            className="mt-4 mx-auto h-48 object-cover rounded shadow"
+          />
         )}
       </div>
 
@@ -84,7 +94,7 @@ export default function ProjectForm() {
 
       <input
         type="text"
-        placeholder="Title"
+        placeholder="Asphalt Shingle Installation"
         className="w-full border p-2"
         value={form.title}
         onChange={(e) => setForm({ ...form, title: e.target.value })}
@@ -109,7 +119,10 @@ export default function ProjectForm() {
         required
       />
 
-      <button type="submit" className="bg-black text-white px-4 py-2 w-full">
+      <button
+        type="submit"
+        className="bg-black text-white px-4 py-2 w-full hover:cursor-pointer"
+      >
         Upload Project
       </button>
 

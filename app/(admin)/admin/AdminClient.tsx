@@ -31,11 +31,11 @@ export default function AdminClient() {
             Sign Out
           </Button>
         </div>
-        <div className="pt-24">
+        <div className="pt-12">
           <ProjectForm />
         </div>
       </section>
-      <section className="basis-3/5 flex items-center justify-center bg-blue-300">
+      <section className="basis-3/5 flex items-center justify-center ">
         <div>
           <AdminProjectGrid />
         </div>
