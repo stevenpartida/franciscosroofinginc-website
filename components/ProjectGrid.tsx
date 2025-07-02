@@ -34,33 +34,41 @@ export default function ProjectGrid() {
     fetchProjects();
   }, []);
 
-  const slides = Math.ceil(projects.length / 6);
+  const slides = Math.ceil(projects.length / 8);
 
   if (loading)
-    return <p className="text-center text-gray-500">Loading projects...</p>;
+    return (
+      <p className="flex justify-center text-center text-gray-500 item-center min-h-screen ">
+        Loading projects...
+      </p>
+    );
 
   return (
-    <Carousel
-      opts={{
-        align: "start", // change from "start" to "center" for perfect symmetry
-      }}
-      className="pt-10  max-w-7xl justify-center items-center mx-auto"
-    >
-      <CarouselContent>
-        {Array.from({ length: slides }).map((_, index) => (
-          <CarouselItem key={index}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12  max-w-full mx-auto">
-              {projects.slice(index * 8, index * 8 + 8).map((project) => (
-                <div key={project.id} className="w-full">
-                  <ProjectCard project={project} />
+    <main className="min-h-screen ">
+      <section>
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          className=" p-10 max-w-7xl justify-center items-center mx-auto"
+        >
+          <CarouselContent>
+            {Array.from({ length: slides }).map((_, index) => (
+              <CarouselItem key={index} className="w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12  max-w-full mx-auto">
+                  {projects.slice(index * 8, index * 8 + 8).map((project) => (
+                    <div key={project.id} className="w-full">
+                      <ProjectCard project={project} />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious className="hover:cursor-pointer" variant="ghost" />
-      <CarouselNext className="hover:cursor-pointer" variant="ghost" />
-    </Carousel>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hover:cursor-pointer" variant="ghost" />
+          <CarouselNext className="hover:cursor-pointer" variant="ghost" />
+        </Carousel>
+      </section>
+    </main>
   );
 }

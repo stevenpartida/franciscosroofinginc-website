@@ -94,7 +94,7 @@ export default function ProjectForm() {
 
       <input
         type="text"
-        placeholder="Asphalt Shingle Installation"
+        placeholder="Shingle Install, Pasadena"
         className="w-full border p-2"
         value={form.title}
         onChange={(e) => setForm({ ...form, title: e.target.value })}
