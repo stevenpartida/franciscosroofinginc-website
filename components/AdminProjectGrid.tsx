@@ -17,21 +17,16 @@ export default function AdminProjectGrid() {
   const [totalPages, setTotalPages] = useState(1);
   const pageSize = 6;
 
-  const fetchProjects = async () => {
-    const res = await fetch(
-      `/api/projects?page=${currentPage}&limit=${pageSize}`
-    );
-    const data = await res.json();
-    setProjects(data.projects);
-    setTotalPages(data.totalPages);
-
-    // Optional: adjust current page if necessary
-    if (data.totalPages < currentPage) {
-      setCurrentPage(data.totalPages);
-    }
-  };
-
   useEffect(() => {
+    const fetchProjects = async () => {
+      const res = await fetch(
+        `/api/projects?page=${currentPage}&limit=${pageSize}`
+      );
+      const data = await res.json();
+      setProjects(data.projects);
+      setTotalPages(data.totalPages);
+    };
+
     fetchProjects();
   }, [currentPage]);
 
@@ -41,6 +36,7 @@ export default function AdminProjectGrid() {
     }
   };
 
+  // ✅ NEW: delete logic
   const handleDelete = async (project: Project) => {
     const confirmed = confirm(`Delete "${project.title}"?`);
     if (!confirmed) return;
@@ -50,7 +46,7 @@ export default function AdminProjectGrid() {
     });
 
     if (res.ok) {
-      fetchProjects(); // 🔁 Refresh page to refill gap
+      setProjects((prev) => prev.filter((p) => p.id !== project.id));
     } else {
       const error = await res.json();
       alert(`Delete failed: ${error.message}`);
@@ -60,7 +56,7 @@ export default function AdminProjectGrid() {
   return (
     <div className="p-4">
       {/* Grid layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-2 gap-y-4 ">
         {projects.map((project) => (
           <div key={project.id} className="relative group ">
             <div className="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity space-x-2">
@@ -77,7 +73,6 @@ export default function AdminProjectGrid() {
                 Delete
               </button>
             </div>
-
             <ProjectCard project={project} />
           </div>
         ))}
