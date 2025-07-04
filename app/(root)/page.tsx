@@ -274,7 +274,7 @@ export default function Home() {
         <div className=" w-full flex flex-row justify-center gap-x-6">
           <ServiceCard
             title="Residential"
-            imgSrc="/roof1.jpg"
+            imgSrc="/residential.jpg"
             services={[
               "Roof Installation",
               "Roof Repair",
@@ -287,7 +287,7 @@ export default function Home() {
           ></ServiceCard>
           <ServiceCard
             title="Commercial"
-            imgSrc="/roof3.jpg"
+            imgSrc="/commercial.jpg"
             services={[
               "Roof Installation",
               "Roof Repair",

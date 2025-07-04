@@ -7,7 +7,7 @@ export default function ServicesPage() {
   const { subtitle, services } = servicesData.companyServices;
 
   return (
-    <main className="relative w-full bg-white">
+    <main className="relative flex justify-center flex-col items-center w-full bg-white">
       {/* Header Section */}
       <section className="flex flex-col w-full px-4 md:px-6 lg:px-14">
         <div className="w-full max-w-screen-xl mx-auto text-center items-center justify-center mt-48">
@@ -21,8 +21,8 @@ export default function ServicesPage() {
       </section>
 
       {/* Grid Section */}
-      <section className="w-full px-4 md:px-6 lg:px-14 py-32">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-screen-xl mx-auto">
+      <section className="w-7xl px-4 md:px-6 lg:px-32 py-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-screen-xl mx-auto">
           {services.map((service, i) => (
             <ServiceGridCard
               key={i}

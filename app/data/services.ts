@@ -9,42 +9,42 @@ export const servicesData = {
       {
         name: "Roof Installation",
         description:
-          "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
-        image: "",
+          "We install high-quality shingle, tile, and flat roofs for homes and businesses.",
+        image: "/residential.jpg",
         link: "",
       },
       {
         name: "Roof Repair",
         description:
-          "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
-        image: "",
-        link: "",
-      },
-      {
-        name: "Gutter Installation",
-        description:
-          "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
-        image: "",
+          "We fix leaks, broken shingles or tiles, and other common roof issues quickly and reliably.",
+        image: "/RoofRepair.jpg",
         link: "",
       },
       {
         name: "Roof Maintenance",
         description:
-          "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
+          "Keep your roof in top condition with routine inspections and minor repairs.",
         image: "",
         link: "",
       },
       {
         name: "Flat & Low-Slope Roofing",
         description:
-          "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
+          "We install and maintain durable flat roofing systems for residential and commercial properties.",
+        image: "/commercial.jpg",
+        link: "",
+      },
+      {
+        name: "Gutter Installation & Repair",
+        description:
+          "Protect your property with custom-fit gutter systems and efficient drainage solutions.",
         image: "",
         link: "",
       },
       {
-        name: "Roof Coating & Water Proofing",
+        name: "Roof Coating & Waterproofing",
         description:
-          "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
+          "Extend the life of flat roofs with UV-resistant coatings and leak-preventing barriers.",
         image: "",
         link: "",
       },
