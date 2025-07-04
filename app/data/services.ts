@@ -14,14 +14,7 @@ export const servicesData = {
         link: "",
       },
       {
-        name: "Roof Leak Repair",
-        description:
-          "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
-        image: "",
-        link: "",
-      },
-      {
-        name: "Single Replacement",
+        name: "Roof Repair",
         description:
           "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
         image: "",
@@ -35,14 +28,21 @@ export const servicesData = {
         link: "",
       },
       {
-        name: "Roof Inspection",
+        name: "Roof Maintenance",
         description:
           "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
         image: "",
         link: "",
       },
       {
-        name: "Storm Damage Restoration",
+        name: "Flat & Low-Slope Roofing",
+        description:
+          "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
+        image: "",
+        link: "",
+      },
+      {
+        name: "Roof Coating & Water Proofing",
         description:
           "Expert installation of various roofing systems tailored to your home’s needs, ensuring durability and aesthetic appeal.",
         image: "",
