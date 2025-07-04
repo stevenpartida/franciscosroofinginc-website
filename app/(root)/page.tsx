@@ -276,25 +276,27 @@ export default function Home() {
             title="Residential"
             imgSrc="/roof1.jpg"
             services={[
-              "Roof Repair",
-              "Roof Replacement",
               "Roof Installation",
-              "Emergency Roofing",
+              "Roof Repair",
+              "Gutter Installation",
               "Roof Maintenance",
+              "Flat & Low-Slope Roofing",
+              "Roof Coating & Water Proofing",
             ]}
-            href="/services/residential"
+            href="/services"
           ></ServiceCard>
           <ServiceCard
             title="Commercial"
             imgSrc="/roof3.jpg"
             services={[
-              "Roof Repair",
-              "Roof Replacement",
               "Roof Installation",
-              "Emergency Roofing",
+              "Roof Repair",
+              "Gutter Installation",
               "Roof Maintenance",
+              "Flat & Low-Slope Roofing",
+              "Roof Coating & Water Proofing",
             ]}
-            href="/services/commercial"
+            href="/services"
           ></ServiceCard>
         </div>
       </section>
