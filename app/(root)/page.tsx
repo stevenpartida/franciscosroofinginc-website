@@ -35,7 +35,7 @@ const stats = [
   {
     id: 3,
     title: "Rated Reviews",
-    value: 4.8,
+    value: 5.0,
     icon: <Star className="text-highlight fill-highlight w-6 h-6" />,
   },
 ];
@@ -137,7 +137,7 @@ export default function Home() {
               >
                 <dt className="text-base font-light">{stat.title}</dt>
                 <dd className="order-first flex items-center justify-center text-3xl font-semibold tracking-tight sm:text-5xl">
-                  {stat.value}
+                  <span className="pr-2">{stat.value}</span>
                   {stat.icon}
                 </dd>
               </div>
@@ -146,12 +146,12 @@ export default function Home() {
         </div>
       </section>
       {/* Our Mission Section */}
-      <section className="w-full flex flex-row justify-center gap-x-4  px-14 py-24">
+      <section className="w-full lg:flex lg:flex-row justify-center gap-x-4 px-4 py-6 lg:px-14 lg:py-14">
         {/* Left Images */}
-        <div className="flex flex-row gap-x-8 font-roboto relative mt-8 w-full mx-auto">
+        <div className=" flex flex-row items-center justify-center gap-x-4 lg:gap-x-8 font-roboto relative mt-8 w-full mx-auto">
           {/* Image 1 with Black Box */}
-          <div className="relative lg:flex flex-col lg:gap-x-8 lg:gap-y-4">
-            <div className="relative lg:w-64 lg:h-72 overflow-hidden rounded-lg rounded-tl-[80]">
+          <div className="relative flex flex-col gap-x-8 gap-y-4 lg:gap-x-8 lg:gap-y-4">
+            <div className="relative w-40 h-44 lg:w-64 lg:h-72 overflow-hidden rounded-lg rounded-tl-[80]">
               <Image
                 src="/worker1.jpg"
                 alt="worker1"
@@ -159,13 +159,13 @@ export default function Home() {
                 objectFit="cover"
               ></Image>
             </div>
-            <div className="bg-black text-white flex flex-col justify-center text-center py-2 relative lg:w-64 lg:h-32 rounded-lg">
+            <div className="bg-black text-white flex flex-col justify-center text-center py-2 relative w-40 h-20 not-odd:lg:w-64 lg:h-32 rounded-lg">
               <h1 className="font-extrabold text-3xl">35 +</h1>
               <p className="text-sm font-light">Years of Experience</p>
             </div>
           </div>
           {/* Image 2 */}
-          <div className="relative lg:w-64 overflow-hidden lg:h-108 rounded-lg rounded-br-[80]">
+          <div className="relative w-40 h-[270px] lg:w-64 lg:h-[432px] overflow-hidden  rounded-lg rounded-br-[80]">
             <Image
               src="/worker2.jpg"
               alt="worker2"
@@ -175,11 +175,11 @@ export default function Home() {
           </div>
         </div>
         {/* Right Text Section */}
-        <div className="relative flex flex-col mt-8 pl-12 w-full mx-auto">
-          <h1 className="capitalize text-base font-bold font-roboto">
+        <div className="relative flex flex-col mt-8 px-4 lg:pl-12 w-full mx-auto">
+          <h1 className="capitalize text-lg lg:text-base font-bold font-roboto">
             Our Mission
           </h1>
-          <h1 className="uppercase font-extrabold font-manrope text-5xl tracking-tighter text-black">
+          <h1 className="uppercase font-extrabold font-manrope text-4xl lg:text-5xl tracking-tighter text-black ">
             Family-Owned, <br />
             <span className="">Quality Roofing</span>
           </h1>
@@ -205,7 +205,7 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          <div className="flex justify-start">
+          <div className="flex justify-center items-center lg:justify-start mt-4">
             <Button
               variant={"gradient"}
               className="font-roboto font-bold w-auto mt-8"
@@ -216,23 +216,23 @@ export default function Home() {
         </div>
       </section>
       {/* Testimonials Section */}
-      <section className="flex flex-row justify-center px-14 overflow-hidden bg-white">
-        <div className="flex flex-col w-full mx-auto mt-18 ">
+      <section className="lg:flex lg:flex-row justify-center px-4 py-6 lg:px-14 lg:py-14 overflow-hidden bg-blue-100">
+        <div className="flex flex-col justify-center  w-full mx-auto bg-pink-400">
           <div className="flex flex-col">
-            <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter text-balance text-black">
+            <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter lg:text-balance text-black bg-green-200">
               Hear it from <br /> Homeowners & Businesses <br />
               Not just us!
             </h1>
-            <p className="font-roboto text-base font-medium text-black my-4">
+            <p className="font-roboto text-lg font-medium lg:text-base text-black my-4">
               Discover what our clients have to say about their experience with
               our services.
             </p>
           </div>
 
-          <div className="flex justify-start">
+          <div className="flex justify-center lg:justify-start">
             <Button
               variant={"gradient"}
-              className="font-roboto font-bold w-auto mt-8"
+              className="font-roboto font-bold w-auto mt-4 lg:mt-8"
             >
               More Reviews <ChevronRight />
             </Button>
@@ -266,12 +266,12 @@ export default function Home() {
       {/* Services Section */}
       <section
         id="services"
-        className="w-full mx-auto min-h-screen bg-black text-white flex flex-col justify-center items-center px-14 py-24"
+        className="w-full mx-auto min-h-screen bg-black text-white  flex flex-col justify-center items-center px-14 py-24"
       >
-        <h1 className="capitalize font-extrabold font-manrope text-7xl tracking-tighter text-white mb-10 ">
+        <h1 className="capitalize font-extrabold font-manrope text-4xl justify-center items-center lg:text-7xl tracking-tighter text-white mb-10 ">
           Our Services
         </h1>
-        <div className=" w-full flex flex-row justify-center gap-x-6">
+        <div className=" w-full flex flex-col  lg:flex-row justify-center gap-x-6">
           <ServiceCard
             title="Residential"
             imgSrc="/residential.jpg"

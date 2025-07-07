@@ -19,7 +19,7 @@ const ServiceCard = ({ title, imgSrc, services, href }: ServiceCardProps) => {
   return (
     <Link href={href} className="inline-block">
       <motion.div
-        className="relative w-[500px] h-[500px] overflow-hidden  rounded-2xl cursor-pointer hover:shadow-lg shadow-highlight "
+        className="relative w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] overflow-hidden  rounded-2xl cursor-pointer hover:shadow-lg shadow-highlight mb-8 "
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         whileHover={{ y: -20 }}
@@ -40,7 +40,7 @@ const ServiceCard = ({ title, imgSrc, services, href }: ServiceCardProps) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 10 }}
             transition={{ duration: 0.3 }}
-            className="px-4 py-4 space-y-1 text-base font-semibold"
+            className="lg:px-4 lg:py-4 space-y-1 px-2 py-2 text-xs font-medium lg:text-base lg:font-semibold"
           >
             {services.map((service, i) => (
               <div key={i}>{service}</div>
@@ -52,7 +52,7 @@ const ServiceCard = ({ title, imgSrc, services, href }: ServiceCardProps) => {
             <motion.span
               animate={{ color: hovered ? "#1e90ff" : "#f8f9fa" }}
               transition={{ duration: 0.3 }}
-              className="text-3xl sm:text-4xl font-bold font-roboto"
+              className="lg:text-3xl text-xl font-bold font-roboto"
             >
               {title}
             </motion.span>
@@ -66,7 +66,7 @@ const ServiceCard = ({ title, imgSrc, services, href }: ServiceCardProps) => {
               transition={{ duration: 0.3 }}
               className="origin-center"
             >
-              <MoveUpRight className="w-10 h-10" />
+              <MoveUpRight className="w-6 h-6 lg:w-10 lg:h-10" />
             </motion.div>
           </div>
         </div>
