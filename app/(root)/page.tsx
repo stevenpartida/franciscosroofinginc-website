@@ -266,12 +266,13 @@ export default function Home() {
       {/* Services Section */}
       <section
         id="services"
-        className="w-full mx-auto min-h-screen bg-black text-white  flex flex-col justify-center items-center px-14 py-24"
+        className="w-full mx-auto min-h-screen bg-black text-white flex flex-col justify-center items-center px-4 py-6 sm:px-6 md:px-10 lg:px-14 py-20"
       >
-        <h1 className="capitalize font-extrabold font-manrope text-4xl justify-center items-center lg:text-7xl tracking-tighter text-white mb-10 ">
+        <h1 className="capitalize font-extrabold font-manrope text-4xl text-center lg:text-7xl tracking-tighter text-white mb-10">
           Our Services
         </h1>
-        <div className=" w-full flex flex-col  lg:flex-row justify-center gap-x-6">
+
+        <div className="w-full max-w-5xl flex flex-col gap-y-10 lg:flex-row lg:gap-x-6 lg:gap-y-0 items-center justify-center">
           <ServiceCard
             title="Residential"
             imgSrc="/residential.jpg"
@@ -284,7 +285,7 @@ export default function Home() {
               "Roof Coating & Water Proofing",
             ]}
             href="/services"
-          ></ServiceCard>
+          />
           <ServiceCard
             title="Commercial"
             imgSrc="/commercial.jpg"
@@ -297,15 +298,16 @@ export default function Home() {
               "Roof Coating & Water Proofing",
             ]}
             href="/services"
-          ></ServiceCard>
+          />
         </div>
       </section>
+
       {/* Material Section */}
-      <section className="w-full mx-auto items-center px-14 py-14 ">
+      <section className="w-full mx-auto flex justify-center items-center px-4 py-6 lg:px-14 lg:py-14 ">
         <LogoCloud />
       </section>
       {/* CTA Section */}
-      <section className="w-full px-14 pb-14">
+      <section className="w-full lg:px-14 lg:pb-14">
         <CTA />
       </section>
     </main>

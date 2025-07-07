@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const CTA = () => {
   return (
-    <div className="relative bg-grey-custom/20 rounded-[40px] ">
+    <div className="relative bg-grey-custom/20 lg:rounded-[40px] ">
       <div className="flex flex-col items-center justify-center gap-4 p-8 md:p-12 lg:p-16 xl:p-20">
         <Image
           src="/logoBlack.png"
@@ -26,7 +26,7 @@ const CTA = () => {
         </Link>
       </div>
 
-      <div className="absolute bottom-0 w-full">
+      <div className="lg:absolute lg:bottom-0 w-full">
         <Footer />
       </div>
     </div>

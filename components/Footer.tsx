@@ -14,19 +14,19 @@ const navigation = [
 
 const Footer = () => {
   return (
-    <div className="w-full px-6 py-4 relative">
-      <div className="max-w-7xl mx-auto flex items-center justify-between relative">
+    <div className="w-full px-6 py-4 lg:relative">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between lg:relative">
         {/* Email */}
         <Link
           href="mailto:info@franciscosroofinginc.co"
-          className="flex flex-row items-center gap-2"
+          className="flex flex-row items-center gap-2 mb-4 lg:mb-0"
         >
           <IoMail className="text-2xl text-black" />
           <span>info@franciscosroofinginc.co</span>
         </Link>
 
         {/* Nav - absolutely centered */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex gap-x-6">
+        <div className="absolute left-1/2 transform -translate-x-1/2  gap-x-6 hidden lg:flex">
           {navigation.map((item) => (
             <Link
               key={item.name}
@@ -39,7 +39,7 @@ const Footer = () => {
         </div>
 
         {/* Socials */}
-        <div className="flex flex-row items-center gap-4">
+        <div className="flex flex-row justify-center items-center gap-4">
           <Link href="/" className="">
             <FaFacebook size={25} className="text-lg text-black" />
           </Link>
