@@ -218,14 +218,14 @@ export default function Home() {
         </div>
       </section>
       {/* Testimonials Section */}
-      <section className="lg:flex lg:flex-row justify-center px-4 py-6 lg:px-14 lg:py-14 overflow-hidden ">
+      <section className="lg:flex lg:flex-row justify-center px-4 py-6 lg:px-14 lg:py-14 overflow-hidden bg-black ">
         <div className="flex flex-col justify-center mb-8 w-full mx-auto ">
-          <div className="flex flex-col ">
-            <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter text-center  md:text-start md:text-balance text-black ">
+          <div className="flex flex-col text-white">
+            <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter text-center  md:text-start md:text-balance ">
               Hear it from <br /> Homeowners & Businesses <br />
               Not just us!
             </h1>
-            <p className="font-roboto text-lg font-medium text-center md:text-start lg:text-base text-black my-4">
+            <p className="font-roboto text-lg font-medium text-center md:text-start lg:text-base  my-4">
               Discover what our clients have to say about their experience with
               our services.
             </p>

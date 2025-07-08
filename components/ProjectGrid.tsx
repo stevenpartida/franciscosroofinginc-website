@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { ArrowRight } from "lucide-react";
 
 interface Project {
   id: string;
@@ -45,7 +46,7 @@ export default function ProjectGrid() {
 
   return (
     <main className="min-h-screen ">
-      <section>
+      <section className="hidden md:block">
         <Carousel
           opts={{
             align: "start",
@@ -68,6 +69,32 @@ export default function ProjectGrid() {
           <CarouselPrevious className="hover:cursor-pointer" variant="ghost" />
           <CarouselNext className="hover:cursor-pointer" variant="ghost" />
         </Carousel>
+      </section>
+      <section className="md:hidden flex flex-col justify-center items-center mt-10 mb-[-200px] space-y-4 p-11 max-w-7xl mx-auto">
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          className="w-full justify-center items-center"
+        >
+          {/* Top Button */}
+
+          {/* Content */}
+          <CarouselContent>
+            {projects.map((project) => (
+              <CarouselItem key={project.id} className="w-full">
+                <div className="flex justify-center w-full">
+                  <div className="w-full max-w-[400px]">
+                    <ProjectCard project={project} />
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+        <p className="text-sm text-gray-500 mt-2 animate-pulse flex items-center gap-1">
+          Swipe <ArrowRight className="w-4 h-4" />
+        </p>
       </section>
     </main>
   );

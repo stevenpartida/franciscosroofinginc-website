@@ -13,7 +13,7 @@ export default function page() {
       <section>
         <ProjectGrid />
       </section>
-      <section className="w-full px-14 pb-14">
+      <section className="w-full lg:px-14 lg:pb-14">
         <CTA />
       </section>
     </main>
