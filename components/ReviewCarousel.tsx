@@ -113,7 +113,8 @@ const ReviewCarousel = () => {
   }, [currentIndex]);
 
   return (
-    <section className=" w-full mx-auto overflow-hidden flex flex-row justify-center gap-4 ">
+    <section className="w-full mx-auto overflow-hidden flex flex-col lg:flex-row justify-center items-center gap-4">
+      {/* Review Cards */}
       <div className="flex flex-col gap-6">
         <div className="mt-[-55%]">
           <ReviewCard review={reviews[prevIndex]} faded />
@@ -123,10 +124,12 @@ const ReviewCarousel = () => {
           <ReviewCard review={reviews[nextIndex]} faded />
         </div>
       </div>
-      <div className="flex flex-col gap-4 w-auto mt-30">
+
+      {/* Nav Buttons */}
+      <div className="hidden lg:flex flex-row lg:flex-col justify-center gap-4 w-full lg:w-auto mt-6 lg:mt-30 ">
         <button
           onClick={prevReview}
-          className="p-6 rounded-full bg-grey-custom/30 hover:cursor-pointer "
+          className="p-6 rounded-full bg-grey-custom/30 hover:cursor-pointer"
           aria-label="Previous review"
         >
           <ArrowUp className="text-gray-700" />

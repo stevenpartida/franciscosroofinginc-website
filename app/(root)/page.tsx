@@ -216,9 +216,9 @@ export default function Home() {
         </div>
       </section>
       {/* Testimonials Section */}
-      <section className="lg:flex lg:flex-row justify-center px-4 py-6 lg:px-14 lg:py-14 overflow-hidden bg-blue-100">
-        <div className="flex flex-col justify-center  w-full mx-auto bg-pink-400">
-          <div className="flex flex-col">
+      <section className="lg:flex lg:flex-row justify-center px-4 py-6 lg:px-14 lg:py-14 overflow-hidden ">
+        <div className="flex flex-col justify-center mb-8 w-full mx-auto bg-pink-400">
+          <div className="flex flex-col ">
             <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter lg:text-balance text-black bg-green-200">
               Hear it from <br /> Homeowners & Businesses <br />
               Not just us!
@@ -232,7 +232,7 @@ export default function Home() {
           <div className="flex justify-center lg:justify-start">
             <Button
               variant={"gradient"}
-              className="font-roboto font-bold w-auto mt-4 lg:mt-8"
+              className="font-roboto font-bold w-auto my-4 lg:mt-8"
             >
               More Reviews <ChevronRight />
             </Button>

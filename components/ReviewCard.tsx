@@ -20,13 +20,13 @@ type ReviewCardProps = {
 const ReviewCard = ({ review, faded = false }: ReviewCardProps) => {
   return (
     <div
-      className={`rounded-lg bg-grey-custom/15 text-black px-4 py-6 mx-auto w-[500px] h-[360px] flex flex-col justify-between
-        ${faded ? " opacity-40 " : "scale-100"}
-      `}
+      className={`w-[90%] max-w-[500px] h-[300px] sm:h-[320px] md:h-[340px] lg:h-[360px] px-4 py-6 mx-auto flex flex-col justify-between rounded-lg bg-grey-custom/15 text-black
+    ${faded ? "opacity-40" : "scale-100"}
+  `}
     >
       <div className="flex flex-col ">
-        <h1 className="text-6xl text-grey-custom/30">❝</h1>
-        <p className="text-black text-base italic font-bold mt-[-10px]">
+        <h1 className="text-4xl lg:text-6xl text-grey-custom/30">❝</h1>
+        <p className="text-black text-sm font-semibold lg:text-base italic lg:font-bold mt-[-10px]">
           {review.review_text}
         </p>
       </div>
@@ -37,12 +37,27 @@ const ReviewCard = ({ review, faded = false }: ReviewCardProps) => {
             alt={review.review_name}
             width={48}
             height={48}
+            className="hidden md:flex"
           ></Image>
-          <h1 className="text-lg font-semibold">{review.review_name}</h1>
+          <Image
+            src={review.review_img}
+            alt={review.review_name}
+            width={32}
+            height={32}
+            className="md:hidden"
+          ></Image>
+          <h1 className="text-base font-bold lg:text-lg lg:font-semibold">
+            {review.review_name}
+          </h1>
         </div>
-        <div className="flex gap-x-1">
+        <div className="hidden md:flex gap-x-1">
           {Array.from({ length: review.review_rating }).map((_, i) => (
             <Star key={i} size={20} color="#1E90FF" fill="#1E90FF" />
+          ))}
+        </div>
+        <div className="md:hidden flex gap-x-1">
+          {Array.from({ length: review.review_rating }).map((_, i) => (
+            <Star key={i} size={14} color="#1E90FF" fill="#1E90FF" />
           ))}
         </div>
       </div>
