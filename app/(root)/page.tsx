@@ -115,10 +115,10 @@ export default function Home() {
                 roofing solutions.
               </p>
               <div className="flex justify-center md:justify-start space-x-4">
-                <Link href="/">
+                <Link href="/contact">
                   <Button variant="gradient">Get Free Estimate</Button>
                 </Link>
-                <Link href="/">
+                <Link href="/projects">
                   <Button variant="outline">View Projects</Button>
                 </Link>
               </div>
@@ -206,12 +206,14 @@ export default function Home() {
             </ul>
           </div>
           <div className="flex justify-center items-center lg:justify-start mt-4">
-            <Button
-              variant={"gradient"}
-              className="font-roboto font-bold w-auto mt-8"
-            >
-              Read More <ChevronRight />
-            </Button>
+            <Link href="/about">
+              <Button
+                variant={"gradient"}
+                className="font-roboto font-bold w-auto mt-8"
+              >
+                Read More <ChevronRight />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -230,12 +232,14 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center lg:justify-start">
-            <Button
-              variant={"gradient"}
-              className="font-roboto font-bold w-auto my-4 lg:mt-8"
-            >
-              More Reviews <ChevronRight />
-            </Button>
+            <Link href="https://www.google.com/search?q=google+reviews+fransicos+roofing+inc&oq=google+reviews+fransicos+roofing+inc+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRhA0gEIOTE3NmowajmoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0xa4814b9241b56cc5:0xbd7592d0537d880d,1,,,,">
+              <Button
+                variant={"gradient"}
+                className="font-roboto font-bold w-auto my-4 lg:mt-8"
+              >
+                More Reviews <ChevronRight />
+              </Button>
+            </Link>
           </div>
         </div>
         <ReviewCarousel />
