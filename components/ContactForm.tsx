@@ -175,8 +175,8 @@ function ContactForm() {
               <FormControl>
                 <Textarea
                   {...field}
-                  rows={500}
-                  className="min-h-[150px]"
+                  rows={4}
+                  className="w-full min-h-[150px] resize-none sm:resize-y rounded-md p-2 "
                   placeholder="How can we help you?"
                 />
               </FormControl>
