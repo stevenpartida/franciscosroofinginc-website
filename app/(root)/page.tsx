@@ -43,7 +43,7 @@ const stats = [
 const guarantees = [
   {
     id: 1,
-    icon: <Gift className="text-highlight w-12 h-12" />,
+    icon: <Gift className="text-highlight w-10 h-10 md:w-12 md:h-12" />,
     title: (
       <>
         High <br /> Quality
@@ -54,7 +54,7 @@ const guarantees = [
   },
   {
     id: 2,
-    icon: <Award className="text-highlight w-12 h-12" />,
+    icon: <Award className="text-highlight w-10 h-10 md:w-12 md:h-12" />,
     title: (
       <>
         Satisfaction <br /> Guaranteed
@@ -65,7 +65,7 @@ const guarantees = [
   },
   {
     id: 3,
-    icon: <ShieldCheck className="text-highlight w-12 h-12" />,
+    icon: <ShieldCheck className="text-highlight w-10 h-10 md:w-12 md:h-12" />,
     title: (
       <>
         Licensed & <br /> Insured
@@ -217,13 +217,13 @@ export default function Home() {
       </section>
       {/* Testimonials Section */}
       <section className="lg:flex lg:flex-row justify-center px-4 py-6 lg:px-14 lg:py-14 overflow-hidden ">
-        <div className="flex flex-col justify-center mb-8 w-full mx-auto bg-pink-400">
+        <div className="flex flex-col justify-center mb-8 w-full mx-auto ">
           <div className="flex flex-col ">
-            <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter lg:text-balance text-black bg-green-200">
+            <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter text-center  md:text-start md:text-balance text-black ">
               Hear it from <br /> Homeowners & Businesses <br />
               Not just us!
             </h1>
-            <p className="font-roboto text-lg font-medium lg:text-base text-black my-4">
+            <p className="font-roboto text-lg font-medium text-center md:text-start lg:text-base text-black my-4">
               Discover what our clients have to say about their experience with
               our services.
             </p>
@@ -241,7 +241,7 @@ export default function Home() {
         <ReviewCarousel />
       </section>
       {/* Guarantees Section */}
-      <section className="w-full text-black py-12 sm:py-18">
+      <section className="w-full text-black px-4 py-6 lg:py-12 ">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 font-roboto">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
             {guarantees.map((guarantee) => (
@@ -249,12 +249,12 @@ export default function Home() {
                 key={guarantee.id}
                 className="mx-auto flex max-w-md flex-col gap-y-3 "
               >
-                <dt className="text-sm font-normal text-balance">
+                <dt className="text-sm font-normal  text-balance ">
                   {guarantee.description}
                 </dt>
                 <dd className="order-first flex flex-row items-center justify-center space-x-2">
                   <div>{guarantee.icon}</div>
-                  <div className="font-roboto text-black text-2xl text-center font-semibold leading-none">
+                  <div className="font-roboto text-black text-xl md:text-2xl text-center font-semibold leading-none">
                     {guarantee.title}
                   </div>
                 </dd>
@@ -307,7 +307,7 @@ export default function Home() {
         <LogoCloud />
       </section>
       {/* CTA Section */}
-      <section className="w-full lg:px-14 lg:pb-14">
+      <section className="w-full  lg:px-14 lg:pb-14">
         <CTA />
       </section>
     </main>
