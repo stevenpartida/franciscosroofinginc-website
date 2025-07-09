@@ -40,13 +40,22 @@ const Footer = () => {
 
         {/* Socials */}
         <div className="flex flex-row justify-center items-center gap-4">
-          <Link href="/" className="">
+          <Link
+            href="https://www.facebook.com/franciscosroofinginc22/?ref=pages_you_manage"
+            className=""
+          >
             <FaFacebook size={25} className="text-lg text-black" />
           </Link>
-          <Link href="/" className="">
+          <Link
+            href="https://www.instagram.com/franciscosroofinginc/"
+            className=""
+          >
             <FaInstagram size={25} className="text-lg text-black" />
           </Link>
-          <Link href="/" className="">
+          <Link
+            href="https://www.google.com/search?q=google+reviews+fransicos+roofing+inc&oq=google+reviews+fransicos+roofing+inc+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRhA0gEIOTE3NmowajmoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0xa4814b9241b56cc5:0xbd7592d0537d880d,1,,,,"
+            className=""
+          >
             <FaGoogle size={25} className="text-lg text-black" />
           </Link>
         </div>
