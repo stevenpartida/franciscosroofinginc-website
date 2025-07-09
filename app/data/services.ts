@@ -4,7 +4,7 @@ export const servicesData = {
   companyServices: {
     title: "Services",
     subtitle:
-      "Serving homeowners across the Los Angeles area, we specialize in high-quality residential roofing services designed to protect and enhance your home. Whether you need a new roof, repairs, or routine maintenance, our experienced team delivers durable, long-lasting results with professionalism and care.",
+      "Reliable and professional residential and commercial roofing services designed to protect your property with quality craftsmanship and durable materials.",
     services: [
       {
         name: "Roof Installation",
@@ -21,10 +21,10 @@ export const servicesData = {
         link: "",
       },
       {
-        name: "Roof Maintenance",
+        name: "Roof Replacement",
         description:
-          "Keep your roof in top condition with routine inspections and minor repairs.",
-        image: "",
+          "We remove and replace old or damaged roofs with durable, long-lasting shingle, tile, or flat roofing systems for homes and businesses.",
+        image: "/roofReplacement.jpg",
         link: "",
       },
       {
@@ -38,14 +38,14 @@ export const servicesData = {
         name: "Gutter Installation & Repair",
         description:
           "Protect your property with custom-fit gutter systems and efficient drainage solutions.",
-        image: "",
+        image: "/gutterInstall.png",
         link: "",
       },
       {
         name: "Roof Coating & Waterproofing",
         description:
           "Extend the life of flat roofs with UV-resistant coatings and leak-preventing barriers.",
-        image: "",
+        image: "/waterProof.jpg",
         link: "",
       },
     ],

@@ -10,11 +10,11 @@ export default function ServicesPage() {
     <main className="relative flex justify-center flex-col items-center w-full bg-white">
       {/* Header Section */}
       <section className="flex flex-col w-full px-4 md:px-6 lg:px-14">
-        <div className="w-full max-w-screen-xl mx-auto text-center items-center justify-center mt-48">
+        <div className="w-full max-w-screen-xl mx-auto text-center items-center justify-center mt-42">
           <h1 className="font-manrope text-black capitalize font-extrabold md:tracking-tighter leading-8 md:leading-13 text-4xl md:text-5xl">
-            Our Roofing Services
+            Services
           </h1>
-          <p className="mt-8 text-black font-roboto font-medium text-center text-pretty w-[80%] m-auto">
+          <p className="mt-8 text-black text-lg font-roboto font-medium text-center text-pretty w-[60%] m-auto">
             {subtitle}
           </p>
         </div>
