@@ -22,14 +22,14 @@ export const ServiceGridCard = ({
   link,
 }: ServiceGridCardProps) => {
   return (
-    <Card className="w-full h-[500px] flex flex-col overflow-hidden shadow-lg">
+    <Card className="w-full  flex flex-col overflow-hidden shadow-lg">
       {/* Image section */}
-      <div className="relative h-[45%] w-full">
+      <div className="relative h-[200px] w-full">
         <Image src={image} alt={title} fill className="object-cover" />
       </div>
 
       {/* Content section */}
-      <CardContent className="flex-1 flex flex-col text-center px-6 py-4">
+      <CardContent className="flex-1 flex flex-col text-center px-6 py-2">
         <CardTitle className="text-xl font-manrope font-semibold text-black">
           {title}
         </CardTitle>

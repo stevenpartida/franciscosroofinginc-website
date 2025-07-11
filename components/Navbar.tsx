@@ -29,7 +29,7 @@ function Navbar({ theme = "light" }: NavBarProps) {
         isLight ? "text-white" : "text-black"
       }`}
     >
-      <nav className="flex items-center justify-between p-6 lg:px-14">
+      <nav className="flex items-center justify-between p-6 lg:px-28">
         {/* Logo */}
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
@@ -72,7 +72,7 @@ function Navbar({ theme = "light" }: NavBarProps) {
 
         {/* Free Estimate Button */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="/">
+          <Link href="/contact">
             <Button variant="gradient" className="font-semibold font-roboto">
               Free Estimate <ChevronRight />
             </Button>

@@ -21,7 +21,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Grid Section */}
-      <section className="w-7xl px-4 md:px-6 lg:px-32 py-32">
+      <section className="w-7xl px-4 md:px-6 lg:px-32 lg:py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-screen-xl mx-auto">
           {services.map((service, i) => (
             <ServiceGridCard

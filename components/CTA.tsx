@@ -29,7 +29,7 @@ const CTA = () => {
           We’re here to help! Contact us today for expert advice and a free
           roofing estimate.
         </p>
-        <Link href="/">
+        <Link href="/contact">
           <Button variant="gradient">Contact Us</Button>
         </Link>
       </div>
