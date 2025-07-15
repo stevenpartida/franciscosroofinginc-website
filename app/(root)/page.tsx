@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -13,11 +15,10 @@ import {
 } from "lucide-react";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import ServiceCard from "@/components/ServiceCard";
-import { title } from "process";
-import { Description } from "@headlessui/react";
-import { div } from "framer-motion/client";
+
 import LogoCloud from "@/components/LogoCloud";
 import CTA from "@/components/CTA";
+import { motion } from "framer-motion";
 
 const stats = [
   {
@@ -98,8 +99,12 @@ export default function Home() {
 
         {/* Content */}
         <div className=" relative h-full w-full z-10 flex flex-col justify-center text-center md:text-start md:justify-end">
-          <div className=" w-full relative md:flex md:flex-row md:justify-between md:items-end md:px-14 md:py-14">
-            <div>
+          <div className=" w-full relative md:flex md:flex-row md:justify-between md:items-end md:px-14 md:py-14 lg:px-28">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.0, ease: "easeOut" }}
+            >
               <h1 className="font-manrope text-white uppercase font-extrabold md:tracking-tighter leading-8 md:leading-13 text-4xl md:text-6xl">
                 FRANCISCO'S <br />
                 ROOFING INC <br />
@@ -107,8 +112,13 @@ export default function Home() {
               <p className="font-roboto text-white capitalize font-semibold text-base mt-2">
                 High Quality Roofing & Repair Service
               </p>
-            </div>
-            <div className="font-roboto text-white flex flex-col space-y-8 m-8 lg:m-0">
+            </motion.div>
+            <motion.div
+              className="font-roboto text-white flex flex-col space-y-8 m-8 lg:m-0"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
               <p className="text-sm sm:text-base font-bold leading-5">
                 We use top-quality materials and expert <br />
                 techniques to deliver long-lasting <br />
@@ -122,33 +132,43 @@ export default function Home() {
                   <Button variant="outline">View Projects</Button>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
       {/* Achievements Sections */}
-      <section className="w-full bg-black text-white py-12 sm:py-18">
+      <section className="w-full bg-black text-white py-12 sm:py-14 ">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 font-roboto">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
-            {stats.map((stat) => (
-              <div
+            {stats.map((stat, i) => (
+              <motion.div
                 key={stat.id}
                 className="mx-auto flex max-w-xs flex-col gap-y-2"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: i * 0.2, ease: "easeOut" }}
               >
                 <dt className="text-base font-light">{stat.title}</dt>
                 <dd className="order-first flex items-center justify-center text-3xl font-semibold tracking-tight sm:text-5xl">
                   <span className="pr-2">{stat.value}</span>
                   {stat.icon}
                 </dd>
-              </div>
+              </motion.div>
             ))}
           </dl>
         </div>
       </section>
       {/* Our Mission Section */}
-      <section className="w-full lg:flex lg:flex-row justify-center gap-x-4 px-4 py-6 lg:px-14 lg:py-14">
+      <section className="w-full lg:flex lg:flex-row justify-center gap-x-4 px-4 py-6 lg:px-14 lg:py-28">
         {/* Left Images */}
-        <div className=" flex flex-row items-center justify-center gap-x-4 lg:gap-x-8 font-roboto relative mt-8 w-full mx-auto">
+        <motion.div
+          className=" flex flex-row items-center justify-center gap-x-4 lg:gap-x-8 font-roboto relative mt-8 w-full mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
           {/* Image 1 with Black Box */}
           <div className="relative flex flex-col gap-x-8 gap-y-4 lg:gap-x-8 lg:gap-y-4">
             <div className="relative w-40 h-44 lg:w-64 lg:h-72 overflow-hidden rounded-lg rounded-tl-[80]">
@@ -173,9 +193,15 @@ export default function Home() {
               objectFit="cover"
             ></Image>
           </div>
-        </div>
+        </motion.div>
         {/* Right Text Section */}
-        <div className="relative flex flex-col mt-8 px-4 lg:pl-12 w-full mx-auto">
+        <motion.div
+          className="relative flex flex-col mt-8 px-4 lg:pl-12 w-full mx-auto"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
           <h1 className="capitalize text-lg lg:text-base font-bold font-roboto">
             Our Mission
           </h1>
@@ -215,11 +241,17 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
       {/* Testimonials Section */}
-      <section className="lg:flex lg:flex-row justify-center px-4 py-6 lg:px-14 lg:py-14 overflow-hidden bg-black ">
-        <div className="flex flex-col justify-center mb-8 w-full mx-auto ">
+      <section className="lg:flex lg:flex-row justify-center px-4 py-6  lg:py-14 overflow-hidden bg-black lg:px-28">
+        <motion.div
+          className="flex flex-col justify-center mb-8 w-full mx-auto "
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.9 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
           <div className="flex flex-col text-white">
             <h1 className="uppercase  font-extrabold font-manrope text-4xl tracking-tighter text-center  md:text-start md:text-balance ">
               Hear it from <br /> Homeowners & Businesses <br />
@@ -241,8 +273,16 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-        </div>
-        <ReviewCarousel />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.9 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="w-full mx-auto flex justify-center items-center"
+        >
+          <ReviewCarousel />
+        </motion.div>
       </section>
       {/* Guarantees Section */}
       <section className="w-full text-black px-4 py-6 lg:py-12 ">
@@ -266,6 +306,18 @@ export default function Home() {
             ))}
           </dl>
         </div>
+      </section>
+      {/* Guarantees Section */}
+      <section className="relative w-full min-h-screen">
+        <Image
+          src="/ProjectsIMG.png"
+          alt="Projects Image"
+          fill
+          className="object-cover "
+          priority
+        ></Image>
+
+        <div className="absolute top-0 left-0 w-full min-h-full bg-gradient-to-b from-[#12121200] to-[#121212] to-100%"></div>
       </section>
       {/* Services Section */}
       <section
@@ -305,7 +357,6 @@ export default function Home() {
           />
         </div>
       </section>
-
       {/* Material Section */}
       <section className="w-full mx-auto flex justify-center items-center px-4 py-6 lg:px-14 lg:py-14 ">
         <LogoCloud />

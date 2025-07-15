@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { ChevronRight, Menu, X } from "lucide-react";
 import { Dialog, DialogPanel } from "@headlessui/react";
+import { motion } from "framer-motion";
 
 const navigation = [
   { name: "Services", href: "/services" },
@@ -24,7 +25,10 @@ function Navbar({ theme = "light" }: NavBarProps) {
   const isLight = theme === "light";
 
   return (
-    <header
+    <motion.header
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
       className={`absolute inset-x-0 top-0 z-50 font-roboto w-full ${
         isLight ? "text-white" : "text-black"
       }`}
@@ -125,7 +129,7 @@ function Navbar({ theme = "light" }: NavBarProps) {
           </div>
         </DialogPanel>
       </Dialog>
-    </header>
+    </motion.header>
   );
 }
 
