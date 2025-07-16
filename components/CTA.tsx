@@ -1,12 +1,20 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Footer from "./Footer";
+import { motion } from "framer-motion";
 
 const CTA = () => {
   return (
-    <div className="relative bg-grey-custom/20 lg:rounded-[40px] flex flex-col items-center justify-center w-full">
+    <motion.div
+      className="relative bg-grey-custom/20 lg:rounded-[40px] flex flex-col items-center justify-center w-full"
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.7 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+    >
       <div className="flex flex-col items-center justify-center gap-4 p-8 md:p-12 lg:p-16 xl:p-20">
         <Image
           src="/logoBlack.png"
@@ -37,7 +45,7 @@ const CTA = () => {
       <div className="lg:absolute lg:bottom-0 w-full">
         <Footer />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

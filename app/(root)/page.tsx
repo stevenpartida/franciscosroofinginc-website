@@ -146,7 +146,7 @@ export default function Home() {
                 className="mx-auto flex max-w-xs flex-col gap-y-2"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.6, delay: i * 0.2, ease: "easeOut" }}
               >
                 <dt className="text-base font-light">{stat.title}</dt>
@@ -285,13 +285,17 @@ export default function Home() {
         </motion.div>
       </section>
       {/* Guarantees Section */}
-      <section className="w-full text-black px-4 py-6 lg:py-12 ">
+      <section className="w-full text-black px-4 py-6 lg:py-18 ">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 font-roboto">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
-            {guarantees.map((guarantee) => (
-              <div
+            {guarantees.map((guarantee, i) => (
+              <motion.div
                 key={guarantee.id}
                 className="mx-auto flex max-w-md flex-col gap-y-3 "
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: i * 0.2, ease: "easeOut" }}
               >
                 <dt className="text-sm font-normal  text-balance ">
                   {guarantee.description}
@@ -302,59 +306,93 @@ export default function Home() {
                     {guarantee.title}
                   </div>
                 </dd>
-              </div>
+              </motion.div>
             ))}
           </dl>
         </div>
       </section>
-      {/* Guarantees Section */}
-      <section className="relative w-full min-h-screen">
-        <Image
-          src="/ProjectsIMG.png"
-          alt="Projects Image"
-          fill
-          className="object-cover "
-          priority
-        ></Image>
+      {/* Projects Section */}
+      <section className="relative w-full h-screen ">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.9 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
+          <Image
+            src="/ProjectsIMG.png"
+            alt="Projects Image"
+            fill
+            className="object-cover "
+            priority
+          ></Image>
+        </motion.div>
 
         <div className="absolute top-0 left-0 w-full min-h-full bg-gradient-to-b from-[#12121200] to-[#121212] to-100%"></div>
+
+        <div>
+          <div></div>
+        </div>
       </section>
       {/* Services Section */}
       <section
         id="services"
         className="w-full mx-auto min-h-screen bg-black text-white flex flex-col justify-center items-center px-4 py-6 sm:px-6 md:px-10 lg:px-14 py-20"
       >
-        <h1 className="capitalize font-extrabold font-manrope text-4xl text-center lg:text-7xl tracking-tighter text-white mb-10">
+        <motion.h1
+          className="capitalize font-extrabold font-manrope text-4xl text-center lg:text-7xl tracking-tighter text-white mb-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.9 }}
+          transition={{
+            duration: 0.4,
+            scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+          }}
+        >
           Our Services
-        </h1>
+        </motion.h1>
 
         <div className="w-full max-w-5xl flex flex-col gap-y-10 lg:flex-row lg:gap-x-6 lg:gap-y-0 items-center justify-center">
-          <ServiceCard
-            title="Residential"
-            imgSrc="/residential.jpg"
-            services={[
-              "Roof Installation",
-              "Roof Repair",
-              "Gutter Installation",
-              "Roof Maintenance",
-              "Flat & Low-Slope Roofing",
-              "Roof Coating & Water Proofing",
-            ]}
-            href="/services"
-          />
-          <ServiceCard
-            title="Commercial"
-            imgSrc="/commercial.jpg"
-            services={[
-              "Roof Installation",
-              "Roof Repair",
-              "Gutter Installation",
-              "Roof Maintenance",
-              "Flat & Low-Slope Roofing",
-              "Roof Coating & Water Proofing",
-            ]}
-            href="/services"
-          />
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
+            <ServiceCard
+              title="Residential"
+              imgSrc="/residential.jpg"
+              services={[
+                "Roof Installation",
+                "Roof Repair",
+                "Gutter Installation",
+                "Roof Maintenance",
+                "Flat & Low-Slope Roofing",
+                "Roof Coating & Water Proofing",
+              ]}
+              href="/services"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          >
+            <ServiceCard
+              title="Commercial"
+              imgSrc="/commercial.jpg"
+              services={[
+                "Roof Installation",
+                "Roof Repair",
+                "Gutter Installation",
+                "Roof Maintenance",
+                "Flat & Low-Slope Roofing",
+                "Roof Coating & Water Proofing",
+              ]}
+              href="/services"
+            />
+          </motion.div>
         </div>
       </section>
       {/* Material Section */}
