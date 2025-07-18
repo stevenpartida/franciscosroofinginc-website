@@ -1,6 +1,8 @@
+"use client";
 import { servicesData } from "@/app/data/services";
 import { ServiceGridCard } from "@/components/ServiceGridCard";
 import CTA from "@/components/CTA";
+import { motion } from "framer-motion";
 
 export default function ServicesPage() {
   // We’ll just use the residential group since you said you're unifying the service list
@@ -24,13 +26,22 @@ export default function ServicesPage() {
       <section className="w-7xl px-4 md:px-6 lg:px-32 lg:py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-screen-xl mx-auto">
           {services.map((service, i) => (
-            <ServiceGridCard
+            <motion.div
               key={i}
-              title={service.name}
-              description={service.description}
-              image={service.image || "/noPhoto.png"}
-              link={service.link || "#"}
-            />
+              className="flex justify-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+            >
+              <ServiceGridCard
+                key={i}
+                title={service.name}
+                description={service.description}
+                image={service.image || "/noPhoto.png"}
+                link={service.link || "#"}
+              />
+            </motion.div>
           ))}
         </div>
       </section>

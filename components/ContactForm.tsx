@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { motion } from "framer-motion";
 
 import {
   Form,
@@ -63,9 +64,13 @@ function ContactForm() {
   };
   return (
     <Form {...form}>
-      <form
+      <motion.form
         onSubmit={form.handleSubmit(onSubmit)}
         className="max-w-md mx-auto grid grid-cols-2  gap-4 "
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.8 }}
+        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
       >
         <FormField
           control={form.control}
@@ -203,7 +208,7 @@ function ContactForm() {
             Something went wrong. Try again.
           </p>
         )}
-      </form>
+      </motion.form>
     </Form>
   );
 }

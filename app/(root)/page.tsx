@@ -15,10 +15,10 @@ import {
 } from "lucide-react";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import ServiceCard from "@/components/ServiceCard";
-
 import LogoCloud from "@/components/LogoCloud";
 import CTA from "@/components/CTA";
 import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
 
 const stats = [
   {
@@ -96,6 +96,10 @@ export default function Home() {
         {/* Overlay */}
 
         <div className="absolute top-0 left-0 w-full min-h-full bg-gradient-to-b from-[#12121200] to-[#121212] to-100%"></div>
+
+        <div>
+          <Navbar theme="light" />
+        </div>
 
         {/* Content */}
         <div className=" relative h-full w-full z-10 flex flex-col justify-center text-center md:text-start md:justify-end">
@@ -356,8 +360,8 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.8 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <ServiceCard
               title="Residential"
@@ -376,8 +380,8 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.8 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             <ServiceCard
               title="Commercial"

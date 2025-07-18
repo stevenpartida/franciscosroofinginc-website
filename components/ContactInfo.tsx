@@ -1,12 +1,20 @@
+"use client";
 import React from "react";
 import { LuPhone, LuMail } from "react-icons/lu";
 import { LuClock } from "react-icons/lu";
 import { VscTools } from "react-icons/vsc";
 import { FaFacebook, FaInstagram, FaGoogle } from "react-icons/fa";
+import { motion } from "framer-motion";
+
 function ContactInfo() {
   return (
     <main>
-      <section>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.8, delay: 0, ease: "easeOut" }}
+      >
         <div>
           <h3 className="text-black font-manrope uppercase mb-2 text-base sm:text-lg tracking-widest font-light">
             Get in touch
@@ -20,8 +28,13 @@ function ContactInfo() {
             to ensure your project starts with confidence.
           </p>
         </div>
-      </section>
-      <section>
+      </motion.section>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+      >
         <div className="font-manrope mb-8">
           <a
             href="tel:#"
@@ -48,8 +61,14 @@ function ContactInfo() {
         <div>
           <p className="font-manrope">License No. #1086198</p>
         </div>
-      </section>
-      <section className="mt-8">
+      </motion.section>
+      <motion.section
+        className="mt-8"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+      >
         <h1 className="flex items-center space-x-2 font-bold text-2xl text-black">
           <LuClock size={25} />
           <span>Open Hours</span>
@@ -78,7 +97,7 @@ function ContactInfo() {
             <FaGoogle size={25} />
           </a>
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }
