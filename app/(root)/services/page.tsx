@@ -39,7 +39,7 @@ export default function ServicesPage() {
                 title={service.name}
                 description={service.description}
                 image={service.image || "/noPhoto.png"}
-                link={service.link || "#"}
+                link={`/services/${service.slug}`}
               />
             </motion.div>
           ))}
