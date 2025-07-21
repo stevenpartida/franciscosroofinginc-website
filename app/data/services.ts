@@ -26,7 +26,7 @@ export const servicesData = {
         name: "Roof Repair",
         description:
           "We fix leaks, broken shingles or tiles, and other common roof issues quickly and reliably.",
-        ExtendedDescription:
+        extendedDescription:
           "We fix leaks, broken shingles or tiles, and other common roof issues quickly and reliably. Our repair services are focused on preventing further damage and extending the life of your roof.",
         image: "/RoofRepair.jpg",
         about:

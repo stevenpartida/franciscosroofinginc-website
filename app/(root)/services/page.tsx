@@ -11,16 +11,22 @@ export default function ServicesPage() {
   return (
     <main className="relative flex justify-center flex-col items-center w-full bg-white">
       {/* Header Section */}
-      <section className="flex flex-col w-full px-4 md:px-6 lg:px-14">
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        className="flex flex-col w-full px-4 md:px-6 lg:px-14"
+      >
         <div className="w-full max-w-screen-xl mx-auto text-center items-center justify-center mt-42">
           <h1 className="font-manrope text-black capitalize font-extrabold md:tracking-tighter leading-8 md:leading-13 text-4xl md:text-5xl">
             Services
           </h1>
-          <p className="mt-8 text-black text-lg font-roboto font-medium text-center text-pretty w-[60%] m-auto">
+          <p className="mt-8 text-gray-600 text-lg font-roboto font-medium text-center text-pretty w-[60%] m-auto">
             {subtitle}
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Grid Section */}
       <section className="w-7xl px-4 md:px-6 lg:px-32 lg:py-14">
@@ -32,7 +38,7 @@ export default function ServicesPage() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: "easeOut" }}
             >
               <ServiceGridCard
                 key={i}
