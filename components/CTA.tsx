@@ -12,8 +12,8 @@ const CTA = () => {
       className="relative bg-grey-custom/20 lg:rounded-[40px] flex flex-col items-center justify-center w-full"
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 1, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="flex flex-col items-center justify-center gap-4 p-8 md:p-12 lg:p-16 xl:p-20">
         <Image

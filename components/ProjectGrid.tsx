@@ -1,4 +1,5 @@
 "use client";
+import LoadingDots from "@/components/LoadingDots"; // Adjust path as needed
 
 import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
@@ -11,6 +12,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface Project {
   id: string;
@@ -39,14 +41,20 @@ export default function ProjectGrid() {
 
   if (loading)
     return (
-      <p className="flex justify-center text-center text-gray-500 item-center min-h-screen ">
-        Loading projects...
-      </p>
+      <div className="flex justify-center text-center text-gray-500 item-center min-h-screen ">
+        <LoadingDots />
+      </div>
     );
 
   return (
     <main className="min-h-screen ">
-      <section className="hidden md:block">
+      <motion.section
+        className="hidden md:block"
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <Carousel
           opts={{
             align: "start",
@@ -69,7 +77,7 @@ export default function ProjectGrid() {
           <CarouselPrevious className="hover:cursor-pointer" variant="ghost" />
           <CarouselNext className="hover:cursor-pointer" variant="ghost" />
         </Carousel>
-      </section>
+      </motion.section>
       <section className="md:hidden flex flex-col justify-center items-center mt-10 mb-[-200px] space-y-4 p-11 max-w-7xl mx-auto">
         <Carousel
           opts={{
@@ -77,8 +85,6 @@ export default function ProjectGrid() {
           }}
           className="w-full justify-center items-center"
         >
-          {/* Top Button */}
-
           {/* Content */}
           <CarouselContent>
             {projects.map((project) => (

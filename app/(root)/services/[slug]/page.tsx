@@ -56,7 +56,7 @@ export default function ServiceDetailPage() {
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="relative w-full h-[600px] overflow-hidden rounded-2xl max-w-screen-xl">
           <Image

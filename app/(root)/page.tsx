@@ -334,8 +334,38 @@ export default function Home() {
 
         <div className="absolute top-0 left-0 w-full min-h-full bg-gradient-to-b from-[#12121200] to-[#121212] to-100%"></div>
 
-        <div>
-          <div></div>
+        <div className="relative h-full w-full z-10 flex flex-col justify-center text-center ">
+          <motion.h1
+            className="font-manrope text-white uppercase font-extrabold md:tracking-tighter tracking-tight leading-8 md:leading-13 text-4xl md:text-5xl"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.0, ease: "easeOut" }}
+          >
+            See the Quality <br />
+            for Yourself
+          </motion.h1>
+          <motion.p
+            className="font-roboto text-white font-medium text-base mt-2"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
+            Explore some of our latest residential and commercial roofing
+            projects.
+          </motion.p>
+          <motion.div
+            className="flex justify-center items-center mt-4"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          >
+            <Link href="/projects">
+              <Button variant="outline">View Projects</Button>
+            </Link>
+          </motion.div>
         </div>
       </section>
       {/* Services Section */}
