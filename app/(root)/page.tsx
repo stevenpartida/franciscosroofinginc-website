@@ -346,7 +346,7 @@ export default function Home() {
             for Yourself
           </motion.h1>
           <motion.p
-            className="font-roboto text-white font-medium text-base mt-2"
+            className="font-roboto text-white font-medium text-base mt-2 w-sm md:w-auto"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}

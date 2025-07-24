@@ -1,11 +1,5 @@
 "use client";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -24,31 +18,29 @@ export const ServiceGridCard = ({
   link,
 }: ServiceGridCardProps) => {
   return (
-    <motion.div
-      whileHover={{
-        y: 10,
-      }}
-    >
-      <Link href={link}>
-        <Card className="w-full  flex flex-col overflow-hidden shadow-lg">
-          {/* Image section */}
+    <motion.div whileHover={{ y: 10 }} className="h-full w-full">
+      <Link href={link} className="h-full block">
+        <Card className="w-full h-full flex flex-col justify-between overflow-hidden shadow-lg">
+          {/* Image */}
           <div className="relative h-[200px] w-full">
             <Image src={image} alt={title} fill className="object-cover" />
           </div>
 
-          {/* Content section */}
-          <CardContent className="flex-1 flex flex-col text-center px-6 py-2">
-            <CardTitle className="text-xl font-manrope font-semibold text-black">
-              {title}
-            </CardTitle>
-            <p className="text-base/6  text-muted-foreground mt-2">
-              {description}
-            </p>
+          {/* Content */}
+          <CardContent className="flex-1 flex flex-col justify-between text-center px-5 py-4">
+            <div>
+              <CardTitle className="text-lg sm:text-xl font-manrope font-semibold text-black">
+                {title}
+              </CardTitle>
+              <p className="text-sm sm:text-base text-muted-foreground mt-3 leading-relaxed">
+                {description}
+              </p>
+            </div>
           </CardContent>
 
-          {/* Footer with link */}
-          <CardFooter className="justify-center pb-8">
-            <p className="text-normal text-highlight font-medium hover:underline">
+          {/* Footer */}
+          <CardFooter className="justify-center py-4">
+            <p className="text-blue-600 font-medium hover:underline">
               View Service
             </p>
           </CardFooter>

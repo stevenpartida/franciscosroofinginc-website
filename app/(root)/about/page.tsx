@@ -9,6 +9,38 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 
+const aboutParagraphs = [
+  <>
+    At <span className="font-extrabold">Francisco's Roofing Inc.</span>, roofing
+    isn’t just a job—it’s a family tradition rooted in dedication,
+    craftsmanship, and service. Founded in 2020, our company proudly serves the
+    Los Angeles area with a commitment to quality and professionalism that
+    reflects decades of hands-on experience.
+  </>,
+  <>
+    We are a family-owned and veteran-owned business, led by the father-and-son
+    team of Francisco Sr. and Francisco Jr. With over 30 years in the roofing
+    industry, Francisco Sr. brings a wealth of expertise, attention to detail,
+    and a deep understanding of what it takes to build a durable and lasting
+    roof. Francisco Jr., a proud U.S. Army veteran, carries the same values of
+    integrity, discipline, and service into every project we take on.
+  </>,
+  <>
+    Fully licensed and insured, we stand behind our work and prioritize safety,
+    reliability, and long-term value for our clients. Whether it’s a simple
+    repair or a complete roof replacement, our team is committed to providing
+    honest recommendations, top-tier workmanship, and a smooth customer
+    experience from start to finish.
+  </>,
+  <>
+    At the heart of our business is a belief in doing things right the first
+    time. Our reputation is built not only on the roofs we’ve completed but on
+    the trust we’ve earned in our community. When you work with us, you're not
+    just hiring a contractor—you’re partnering with a local team that treats
+    every home like it’s our own.
+  </>,
+];
+
 const About = () => {
   return (
     <main className=" w-full bg-white">
@@ -45,9 +77,6 @@ const About = () => {
                 SOLUTIONS FOR <br />
                 HOMES & BUSINESSES
               </h1>
-              <p className="font-roboto text-white capitalize font-semibold text-base mt-2">
-                High Quality Roofing & Repair Service
-              </p>
             </motion.div>
             <motion.div
               className="font-roboto text-white flex flex-col space-y-8 m-8 lg:m-0"
@@ -72,9 +101,15 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="w-full min-h-screen flex flex-row items-center justify-center gap-10 md:px-14 md:py-14 lg:px-28">
-        {/* Left: Image */}
-        <div className="w-[400px] h-[400px] bg-white flex items-center justify-center rounded-lg overflow-hidden shadow-xl">
+      <section className="w-full min-h-screen flex flex-col items-center gap-10 px-4 py-10 md:flex-row md:justify-between md:px-14 md:py-14 lg:px-28">
+        {/* Image */}
+        <motion.div
+          className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg aspect-square bg-white flex items-center justify-center rounded-lg overflow-hidden shadow-xl mt-12 lg:mt-0"
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <Image
             src="/logoBlack.png"
             alt="Francisco's Roofing Logo"
@@ -82,37 +117,47 @@ const About = () => {
             height={400}
             className="object-contain"
           />
-        </div>
+        </motion.div>
 
-        {/* Right: Text Content (in column layout) */}
-        <div className="flex flex-col gap-8 max-w-xl">
-          {/* Text Section */}
+        {/* Text */}
+        <div className="flex flex-col gap-6 max-w-xl">
+          {/* Heading */}
           <motion.section
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-start space-y-4"
+            className="space-y-3"
           >
-            <h3 className="text-black font-manrope uppercase text-base sm:text-lg tracking-widest font-light">
+            <h3 className="text-black font-manrope uppercase text-sm sm:text-base tracking-wide">
               About Francisco's Roofing Inc.
             </h3>
-            <h1 className="text-4xl font-roboto font-bold uppercase text-black">
-              Contact Us
+            <h1 className="text-3xl sm:text-4xl font-roboto font-bold uppercase text-black leading-snug">
+              Built on Family, <br /> Service, and Experience
             </h1>
           </motion.section>
 
-          <section>
-            <p className="text-base text-black">
-              Have roofing questions or need assistance? Contact us today! We're
-              here to help at every step and offer free, no-obligation estimates
-              to ensure your project starts with confidence.
-            </p>
-          </section>
+          {aboutParagraphs.map((paragraph, index) => (
+            <motion.section
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2 * (index + 1),
+                ease: "easeOut",
+              }}
+            >
+              <p className="text-sm sm:text-base text-black font-roboto leading-relaxed">
+                {paragraph}
+              </p>
+            </motion.section>
+          ))}
         </div>
       </section>
 
-      <section className="w-full  lg:px-14 lg:pb-14">
+      <section className="w-full pt-12 lg:lg-0 lg:px-14 lg:pb-14">
         <CTA />
       </section>
     </main>
