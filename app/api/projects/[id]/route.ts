@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
-// Delete a project by ID
 export async function DELETE(
   req: NextRequest,
   context: { params: { id: string } }
@@ -45,7 +44,7 @@ export async function DELETE(
     // Still proceed to delete DB row
   }
 
-  // 4. Delete project row from database
+  // 4. Delete project row
   const { error: dbError } = await supabase
     .from("Projects")
     .delete()
