@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase";
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: Record<string, string> }
+  { params }: any // ✅ Use `any` or leave it inferred (Next.js knows the shape)
 ) {
   const projectId = params.id;
 
@@ -25,7 +25,7 @@ export async function DELETE(
   const match = project.image_url.match(
     /\/storage\/v1\/object\/public\/franciscos-roofing-project\/(.+)$/
   );
-  const objectPath = match?.[1]; // e.g. "projects/filename.jpg"
+  const objectPath = match?.[1];
 
   if (!objectPath) {
     return NextResponse.json(
@@ -41,7 +41,7 @@ export async function DELETE(
 
   if (storageError) {
     console.error("Storage delete error:", storageError.message);
-    // Still proceed to delete DB row
+    // Proceed anyway
   }
 
   // 4. Delete project row
