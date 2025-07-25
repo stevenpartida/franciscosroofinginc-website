@@ -3,9 +3,9 @@ import { supabase } from "@/lib/supabase";
 
 export async function DELETE(
   req: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: Record<string, string> }
 ) {
-  const projectId = context.params.id;
+  const projectId = params.id;
 
   // 1. Get project to retrieve image_url
   const { data: project, error: fetchError } = await supabase
@@ -21,7 +21,7 @@ export async function DELETE(
     );
   }
 
-  // 2. Extract object path (no bucket name included)
+  // 2. Extract object path
   const match = project.image_url.match(
     /\/storage\/v1\/object\/public\/franciscos-roofing-project\/(.+)$/
   );
