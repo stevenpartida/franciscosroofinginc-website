@@ -4,9 +4,9 @@ import { supabase } from "@/lib/supabase";
 // Delete a project by ID
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  const projectId = params.id;
+  const projectId = context.params.id;
 
   // 1. Get project to retrieve image_url
   const { data: project, error: fetchError } = await supabase
@@ -45,7 +45,7 @@ export async function DELETE(
     // Still proceed to delete DB row
   }
 
-  // 4. Delete project row
+  // 4. Delete project row from database
   const { error: dbError } = await supabase
     .from("Projects")
     .delete()
