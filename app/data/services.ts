@@ -46,7 +46,7 @@ export const servicesData = {
         extendedDescription:
           "We remove and replace old or damaged roofs with durable, long-lasting systems. Each installation is completed to meet structural requirements, local codes, and long-term performance standards.",
 
-        image: "/roofReplacement.jpg",
+        image: "/roofReplacement.JPG",
         about:
           "When repairs are no longer effective, we offer full roof replacement using durable, long-lasting systems. Our team handles the entire process—from safe removal and accurate installation to final cleanup—while minimizing disruption to your home or business. Every replacement is completed to meet structural requirements, manufacturer specifications, and local building codes.",
         whatsIncluded: [
@@ -97,7 +97,7 @@ export const servicesData = {
           "Extend roof life with UV-resistant coatings and leak-prevention.",
         extendedDescription:
           "Extend roof life with UV-resistant coatings and leak-prevention solutions. These protective applications reduce surface wear, improve energy efficiency, and help prevent costly repairs.",
-        image: "/waterProof.jpg",
+        image: "/waterProof.JPG",
         about:
           "Our roof coating and waterproofing services apply protective layers that seal leaks, reflect UV rays, and resist weather-related wear. These coatings are ideal for extending the life of flat and low-slope roofs by reducing thermal stress, improving energy efficiency, and preventing moisture intrusion.",
         whatsIncluded: [
