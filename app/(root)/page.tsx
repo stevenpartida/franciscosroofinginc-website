@@ -177,8 +177,8 @@ export default function Home() {
           <div className="relative flex flex-col gap-x-8 gap-y-4 lg:gap-x-8 lg:gap-y-4">
             <div className="relative w-40 h-44 lg:w-64 lg:h-72 overflow-hidden rounded-lg rounded-tl-[80]">
               <Image
-                src="/worker1.jpg"
-                alt="worker1"
+                src="/about_home.jpg"
+                alt="About Home Image"
                 layout="fill"
                 objectFit="cover"
               ></Image>
@@ -191,8 +191,8 @@ export default function Home() {
           {/* Image 2 */}
           <div className="relative w-40 h-[270px] lg:w-64 lg:h-[432px] overflow-hidden  rounded-lg rounded-br-[80]">
             <Image
-              src="/worker2.jpg"
-              alt="worker2"
+              src="/about_home2.jpg"
+              alt="About Home Image"
               layout="fill"
               objectFit="cover"
             ></Image>
@@ -210,14 +210,18 @@ export default function Home() {
             Our Mission
           </h1>
           <h1 className="uppercase font-extrabold font-manrope text-4xl lg:text-5xl tracking-tighter text-black ">
-            Family-Owned, <br />
-            <span className="">Quality Roofing</span>
+            Rooted in Family,
+            <br />
+            <span className="">Built on Experience</span>
           </h1>
           <p className="font-roboto text-base font-medium text-black my-4">
-            At Francisco’s Roofing Inc., we believe every home and business
-            deserves top-tier protection. That’s why we use premium materials
-            and advanced techniques to build weather-resistant, long-lasting
-            roofs for both residential and commercial projects.
+            At <span className="font-extrabold">Francisco’s Roofing Inc.</span>,
+            we believe every home and business deserves reliable protection
+            built to last. As a family-owned and veteran-owned roofing company,
+            we combine decades of experience with a commitment to quality,
+            integrity, and service. Using premium materials and advanced
+            techniques, we construct weather-resistant, long-lasting roofs for
+            both residential and commercial properties across Los Angeles.
           </p>
           <div>
             <ul className="list-none flex flex-col gap-y-4">
@@ -227,11 +231,12 @@ export default function Home() {
               </li>
               <li className="flex flex-row gap-x-2 items-center font-roboto text-black text-base font-bold">
                 <CircleCheck className="text-highlight w-5 h-5" />
-                Reliable Service – Trusted by homeowners and businesses.
+                Reliable Service – Trusted by local homeowners and businesses.
               </li>
               <li className="flex flex-row gap-x-2 items-center font-roboto text-black text-base font-bold">
                 <CircleCheck className="text-highlight w-5 h-5" />
-                Weather-Resistant Roofing – Built for any season, any storm.
+                Weather-Resistant Roofing – Built to handle any season, any
+                storm.
               </li>
             </ul>
           </div>

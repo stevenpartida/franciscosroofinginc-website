@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import CTA from "@/components/CTA";
 import ContactInfo from "@/components/ContactInfo";
 import { servicesData } from "@/app/data/services";
+import LogoCloud from "@/components/LogoCloud";
 
 export default function ServiceDetailPage() {
   const params = useParams();
@@ -118,6 +119,10 @@ export default function ServiceDetailPage() {
         <div className="lg:basis-1/3 w-full">
           <ContactInfo />
         </div>
+      </section>
+
+      <section className="w-full mx-auto flex justify-center items-center px-4 py-6 lg:px-14 lg:py-14 ">
+        <LogoCloud />
       </section>
 
       {/* CTA */}

@@ -3,6 +3,7 @@ import { servicesData } from "@/app/data/services";
 import { ServiceGridCard } from "@/components/ServiceGridCard";
 import CTA from "@/components/CTA";
 import { motion } from "framer-motion";
+import LogoCloud from "@/components/LogoCloud";
 
 export default function ServicesPage() {
   // We’ll just use the residential group since you said you're unifying the service list
@@ -50,6 +51,10 @@ export default function ServicesPage() {
             </motion.div>
           ))}
         </div>
+      </section>
+
+      <section className="w-full mx-auto flex justify-center items-center px-4 py-6 lg:px-14 lg:py-14 ">
+        <LogoCloud />
       </section>
 
       {/* CTA Section */}

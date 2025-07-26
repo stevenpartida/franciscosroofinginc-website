@@ -67,7 +67,7 @@ export const servicesData = {
         about:
           "Flat and low-slope roofs require accurate installation and proper drainage to prevent leaks and premature wear. We install high-performance roofing systems designed for durability, weather resistance, and energy efficiency. Our solutions are suited for both residential and commercial buildings and are built to meet all relevant building codes and manufacturer specifications.",
         whatsIncluded: [
-          "Installation of TPO, EPDM, or modified bitumen systems",
+          "Installation of self-adhered modified bitumen systems",
           "Seam sealing and insulation",
           "Slope correction and drainage planning",
           "Maintenance and performance inspections",
