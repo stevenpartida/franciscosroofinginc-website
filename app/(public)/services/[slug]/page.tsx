@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import CTA from "@/components/CTA";
 import ContactInfo from "@/components/ContactInfo";
-import { servicesData } from "@/app/data/services";
+import { servicesData } from "@/app/_data/services";
 import LogoCloud from "@/components/LogoCloud";
 
 export default function ServiceDetailPage() {

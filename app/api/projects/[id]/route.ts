@@ -1,64 +1,48 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { createServerClient } from "@supabase/ssr";
 
 export async function DELETE(
   req: NextRequest,
-  { params }: any // ✅ Use `any` or leave it inferred (Next.js knows the shape)
+  { params }: { params: { id: string } },
 ) {
-  const projectId = params.id;
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY!,
+    {
+      cookies: {
+        getAll: () => req.cookies.getAll(),
+        setAll: () => {},
+      },
+    },
+  );
 
-  // 1. Get project to retrieve image_url
-  const { data: project, error: fetchError } = await supabase
-    .from("Projects")
+  // optional: auth check
+  const { data: userData } = await supabase.auth.getUser();
+  if (!userData.user) {
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+  }
+
+  // get image path
+  const { data: project } = await supabase
+    .from("projects")
     .select("image_url")
-    .eq("id", projectId)
+    .eq("id", params.id)
     .single();
 
-  if (fetchError || !project) {
-    return NextResponse.json(
-      { message: "Project not found", error: fetchError?.message },
-      { status: 404 }
-    );
+  if (!project?.image_url) {
+    return NextResponse.json({ message: "Not found" }, { status: 404 });
   }
 
-  // 2. Extract object path
-  const match = project.image_url.match(
-    /\/storage\/v1\/object\/public\/franciscos-roofing-project\/(.+)$/
-  );
-  const objectPath = match?.[1];
+  const bucket = "project-images";
+  const pathname = new URL(project.image_url).pathname;
+  const prefix = `/storage/v1/object/public/${bucket}/`;
+  const objectPath = pathname.slice(prefix.length);
 
-  if (!objectPath) {
-    return NextResponse.json(
-      { message: "Invalid image path" },
-      { status: 400 }
-    );
-  }
+  // delete image
+  await supabase.storage.from(bucket).remove([objectPath]);
 
-  // 3. Delete image from storage
-  const { error: storageError } = await supabase.storage
-    .from("franciscos-roofing-project")
-    .remove([objectPath]);
+  // delete row
+  await supabase.from("projects").delete().eq("id", params.id);
 
-  if (storageError) {
-    console.error("Storage delete error:", storageError.message);
-    // Proceed anyway
-  }
-
-  // 4. Delete project row
-  const { error: dbError } = await supabase
-    .from("Projects")
-    .delete()
-    .eq("id", projectId);
-
-  if (dbError) {
-    return NextResponse.json(
-      { message: "Failed to delete project", error: dbError.message },
-      { status: 500 }
-    );
-  }
-
-  return NextResponse.json(
-    { message: "Project deleted successfully" },
-    { status: 200 }
-  );
+  return NextResponse.json({ ok: true });
 }

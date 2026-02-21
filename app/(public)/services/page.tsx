@@ -1,5 +1,5 @@
 "use client";
-import { servicesData } from "@/app/data/services";
+import { servicesData } from "@/app/_data/services";
 import { ServiceGridCard } from "@/components/ServiceGridCard";
 import CTA from "@/components/CTA";
 import { motion } from "framer-motion";
