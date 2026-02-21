@@ -3,8 +3,9 @@ import { createServerClient } from "@supabase/ssr";
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  const { id } = await params;
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY!,
@@ -26,7 +27,7 @@ export async function DELETE(
   const { data: project } = await supabase
     .from("projects")
     .select("image_url")
-    .eq("id", params.id)
+    .eq("id", id)
     .single();
 
   if (!project?.image_url) {
@@ -42,7 +43,7 @@ export async function DELETE(
   await supabase.storage.from(bucket).remove([objectPath]);
 
   // delete row
-  await supabase.from("projects").delete().eq("id", params.id);
+  await supabase.from("projects").delete().eq("id", id);
 
   return NextResponse.json({ ok: true });
 }
