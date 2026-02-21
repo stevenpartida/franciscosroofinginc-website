@@ -15,12 +15,22 @@ export default function page() {
   return (
     <main className="bg-white text-black">
       {/* Desktop / laptop */}
-      <div className="hidden md:block">
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+        className="hidden md:block"
+      >
         <HorizontalScrollCarousel projects={projects} />
-      </div>
+      </motion.div>
 
       {/* Mobile */}
-      <div className="block md:hidden px-4 py-6">
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+        className="block md:hidden px-4 py-6"
+      >
         <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory">
           {projects.map((p) => (
             <div key={p.id} className="min-w-[80%] snap-center">
@@ -28,7 +38,7 @@ export default function page() {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       <section className="w-full lg:px-14 lg:pb-14">
         <CTA />
