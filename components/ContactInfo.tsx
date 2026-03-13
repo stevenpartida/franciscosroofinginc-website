@@ -59,7 +59,7 @@ function ContactInfo() {
           </a>
         </div>
         <div>
-          <p className="font-manrope">License No. #1086198</p>
+          <p className="font-manrope">License No. #1147807</p>
         </div>
       </motion.section>
       <motion.section
