@@ -30,6 +30,7 @@ import Link from "next/link";
 
 const SignIn = () => {
   const [loading, setLoading] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
   const router = useRouter();
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
@@ -42,29 +43,27 @@ const SignIn = () => {
   async function onSubmit(data: z.infer<typeof SignInSchema>) {
     try {
       setLoading(true);
-
-      const email = data.email;
-      const password = data.password;
+      setAuthError(null);
 
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+        email: data.email,
+        password: data.password,
       });
 
       if (error) {
-        console.log(error.message);
+        setAuthError(error.message);
         return;
       }
 
+      router.refresh();
       router.push("/admin");
     } catch (err) {
-      console.log("Error", err);
+      setAuthError("An unexpected error occurred. Please try again.");
+      console.error("Sign-in error:", err);
     } finally {
       setLoading(false);
     }
-
-    console.log(data.email);
   }
 
   return (
@@ -126,7 +125,10 @@ const SignIn = () => {
               </FieldGroup>
             </form>
           </CardContent>
-          <CardFooter className="mb-4">
+          <CardFooter className="mb-4 flex-col gap-3">
+            {authError && (
+              <p className="w-full text-sm text-red-600">{authError}</p>
+            )}
             <Field orientation="horizontal">
               <Button
                 type="button"
