@@ -94,7 +94,7 @@ const About = () => {
                   <Button variant="gradient">Get Free Estimate</Button>
                 </Link>
                 <Link href="/projects">
-                  <Button variant="outline">View Projects</Button>
+                  <Button variant="outlineInvert">View Projects</Button>
                 </Link>
               </div>
             </motion.div>

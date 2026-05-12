@@ -10,7 +10,8 @@ const supabase = createClient();
 export async function uploadData<T>({ table, data }: UploadDataArgs<T>) {
   const { data: insertedData, error } = await supabase
     .from(table)
-    .insert(data)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .insert(data as any)
     .select()
     .single();
 

@@ -3,9 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -14,14 +14,11 @@ const containerVariants = {
   },
 };
 
-const logoVariants = {
+const logoVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
+    transition: { duration: 0.5, ease: [0, 0, 0.2, 1] },
   },
 };
 
