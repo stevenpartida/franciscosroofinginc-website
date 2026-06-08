@@ -29,7 +29,6 @@
     "lucide-react": "^0.479.0",
     "next": "^15.5.18",
     "next-auth": "^4.24.11",
-    "nodemailer": "^8.0.7",
     "radix-ui": "^1.4.3",
     "react": "19.2.1",
     "react-dom": "19.2.1",
@@ -43,7 +42,6 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.20",

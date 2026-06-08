@@ -2,7 +2,6 @@
 import React from "react";
 import { LuPhone, LuMail } from "react-icons/lu";
 import { LuClock } from "react-icons/lu";
-import { VscTools } from "react-icons/vsc";
 import { FaFacebook, FaInstagram, FaGoogle } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -44,18 +43,11 @@ function ContactInfo() {
             <span>+1 (323) 253-5146</span>
           </a>
           <a
-            href="mailto:#"
+            href="mailto:info@franciscosroofinginc.co"
             className="text-black mb-4 flex items-center space-x-2"
           >
             <LuMail size={20} />
             <span>info@franciscosroofinginc.co</span>
-          </a>
-          <a
-            href="maito:#"
-            className="text-black mb-4 flex items-center space-x-2"
-          >
-            <VscTools size={20} />
-            <span>support@franciscosroofinginc.co</span>
           </a>
         </div>
         <div>

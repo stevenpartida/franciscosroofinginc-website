@@ -18,7 +18,9 @@ import {
   FormControl,
   FormMessage,
 } from "@/components/ui/form";
-import { useState } from "react";
+import { useRef, useState } from "react";
+
+const MIN_SUBMIT_MS = 2000;
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -32,8 +34,10 @@ type ContactFormValues = z.infer<typeof formSchema>;
 
 function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle"
+    "idle",
   );
+  const mountedAt = useRef<number>(Date.now());
+  const honeypotRef = useRef<HTMLInputElement>(null);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
@@ -47,18 +51,44 @@ function ContactForm() {
   });
 
   const onSubmit = async (data: ContactFormValues) => {
-    setStatus("sending");
+    const honeypot = honeypotRef.current?.value ?? "";
+    const elapsed = Date.now() - mountedAt.current;
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    if (res.ok) {
+    if (honeypot || elapsed < MIN_SUBMIT_MS) {
       setStatus("sent");
       form.reset();
-    } else {
+      return;
+    }
+
+    setStatus("sending");
+
+    try {
+      const res = await fetch(
+        "https://formsubmit.co/ajax/85c51058f403b7616452cb7fa3b2a762",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            ...data,
+            _subject: "New Roofing Contact Submission!",
+            _template: "box",
+            _captcha: "false",
+            _honey: honeypot,
+            _replyto: data.email,
+          }),
+        },
+      );
+
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
       setStatus("error");
     }
   };
@@ -72,6 +102,16 @@ function ContactForm() {
         viewport={{ once: true, amount: 0.8 }}
         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
       >
+        <input
+          ref={honeypotRef}
+          type="text"
+          name="_honey"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="absolute left-[-9999px] h-0 w-0 opacity-0"
+        />
+
         <FormField
           control={form.control}
           name="name"
@@ -131,7 +171,6 @@ function ContactForm() {
               </Label>
               <FormControl>
                 <Input
-                  type="tel"
                   {...field}
                   className="h-9 px-3 py-5"
                   placeholder="123 Main St, City, State, Zip"
@@ -155,7 +194,7 @@ function ContactForm() {
               </Label>
               <FormControl>
                 <Input
-                  type="tel"
+                  type="email"
                   {...field}
                   className="h-9 px-3 py-5"
                   placeholder="you@email.com"
